@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pseudo clases</title>
+    <link rel="stylesheet" href="../css/pseudo-classes.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Pseudo clases</h1>
+    <br>
+    <p>Los elementos html tienen estados que varían dependiendo de cómo interactuemos con ellos <br >
+    Haciendo uso de las pseudo clases, podemos darle estilos particulares a dichos elementos según el <br>
+    estado en que se encuentren.</p>
+    <p>La sintaxis para usar pseudo clases es:</p>
+    <p class="code block">
+            selector:pseudo-clase { <br />
+                &emsp;propiedad-a-modificar: valor;<br />    
+            }<br />
+            <br />
+    </p>      
+    <br>
+    <br>
+    <section>
+        <h2>Hover</h2>
+        <p>Es la pseudo clase más utilizada. Es el estado al que cambia un elemento cuando el mouse está encima de este. <br>
+        Nos sirve para realizar efectos que se activen cuando el cursor pasa por uno de ellos:</p>
+        <div class="examples-container">
+            <div class="code-examples">
+                <div class="code-example-container col-3">
+                    <p class="code block">
+                            .example-one:hover { <br />
+                                &emsp;color: brown<br />    
+                                &emsp;background-color: lightsalmon;<br />    
+                                &emsp;cursor: pointer;<br />    
+                            }<br />
+                            <br />
+                    </p> 
+                </div>
+                <div class="code-example-container col-3">
+                    <p class="code block">
+                            .example-two:hover { <br />
+                                &emsp;border-bottom: 3px solid black;<br />    
+                                &emsp;cursor: pointer;<br />    
+                            }<br />
+                            <br />
+                    </p> 
+                </div>
+                <div class="code-example-container col-3">
+                    <p class="code block">
+                        .example-three:hover { <br />
+                            &emsp;opacity: .8;<br />    
+                            &emsp;cursor: pointer;<br />    
+                        }<br />
+                        <br />
+                    </p> 
+                </div>
+            </div>            
+            <div class="showcase">
+                <div class="example-container col-3">
+                    <h2 class="example-one">Lorem ipsum</h2>
+                </div>
+                <div class="example-container col-3">
+                    <h2 class="example-two">Lorem ipsum</h2>
+                </div>
+                <div class="example-container col-3">
+                    <img src="../img/landscape.jpg" alt="" class="example-three">
+                </div>
+            </div>
+            <div class="code-examples">
+                <div class="code-example-container col-2">
+                    <p class="code block">
+                        .example-four:hover .inner-img-box { <br />
+                            &emsp;display: block;<br />    
+                        }<br />
+                        <br />
+                    </p> 
+                </div>
+                <div class="code-example-container col-2">
+                    <p class="code block">
+                        .menu:hover > .menu-item { <br />
+                            &emsp;display: block;<br />    
+                        }<br />
+                        <br />
+                        .menu-item:hover > .submenu { <br />
+                            &emsp;display: block;<br />    
+                        }<br />
+                        <br />
+                    </p> 
+                </div>
+            </div>
+            <div class="showcase">
+                <div class="example-container col-2">
+                    <div class="img-container example-four">
+                        <img src="../img/landscape.jpg" alt="">
+                        <div class="inner-img-box">
+                            <h3>LOREM IPSUM</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-container col-2">
+                    <ul class="example-five menu">File
+                        <li class="menu-item"><span>New file</li>
+                        <li class="menu-item"><span>Open file</span></li>
+                        <li class="menu-item"><span>Save file</span></li>
+                        <li class="menu-item"><span>Save as</span></li>
+                        <li class="menu-item">More options
+                            <ul class="submenu">
+                                <li class="menu-item"><span>Option 1</span></li>
+                                <li class="menu-item"><span>Option 2</span></li>
+                                <li class="menu-item"><span>Option 3</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </div>
+    </section>
+    <section>
+        <h2>required</h2>
+        <br />
+        <p>Se utiliza para dar estilos a los inputs que tienen el atributo <span class="code">required</span></p>
+        <br />
+        <br />
+        <p class="code block">
+            .input:required { <br />
+                &emsp;border-bottom: 4px solid goldenrod;<br />    
+                &emsp;border-left: 4px solid goldenrod;<br />    
+            }<br />
+            <br />
+        </p> 
+        <br />
+        <br />
+        <br />
+        <br />
+        <input type="email" required placeholder="Ingrese su email" class="input-one">
+    </section>
+    <section>
+        <h2>valid</h2>
+        <p>Se utiliza para dar estilos a los inputs cuando estos pasan al estado <span class="code">valid</span>, es decir <br>
+        cuando son completados correctamente según su tipo de datos</p>
+        <br />
+        <p class="code block">
+            .input:valid { <br />
+                &emsp;border-bottom: 4px solid green;<br />    
+                &emsp;border-left: 4px solid green;<br />    
+            }<br />
+            <br />
+        </p> 
+        <br />
+        <br />
+        <br />
+        <br />
+        <input type="email" required placeholder="Ingrese su email" class="input-two" />
+    </section>
+    <section>
+        <h2>invalid</h2>
+        <p>Se utiliza para dar estilos a los inputs cuando estos pasan al estado <span class="code">invalid</span> , es decir <br>
+        cuando no están correctamente completados (o incompletos si son requeridos)</p>
+        <p class="code block">
+            .input:invalid { <br />
+                &emsp;border-bottom: 4px solid crimson;<br />    
+                &emsp;border-left: 4px solid crimson;<br />    
+            }<br />
+            <br />
+        </p> 
+        <br />
+        <br />
+        <br />
+        <br />
+        <input type="email" placeholder="Ingrese su email" class="input-three" />
+    </section>
+    <section class="clear">
+        <h2>focus</h2>
+        <p>Se utiliza para dar estilos a los inputs cuando estos tienen el foco, es decir, <br>
+        cuando son selccionados</p>
+        <p class="code block">
+            .input:focus { <br />
+                &emsp;border-bottom: 4px solid darkblue;<br />    
+                &emsp;border-left: 4px solid darkblue;<br />    
+            }<br />
+            <br />
+        </p> 
+        <br />
+        <br />
+        <br />
+        <br />
+        <input type="email" required placeholder="Ingrese su email" class="input-four"/>
+    </section>
+    <section>
+        <h2>nth-of-type(n)</h2>
+        <p>Se utiliza para dar estilos a los elementos de un mismo tipo, en el mismo nivel jerárquico, <br> 
+        es decir, que sean hermanos, cuyo orden satisfaga la fórmula indicada en los paréntesis</p>
+        <p>Si sólo se indica un número n, se seleccionará el n elemento de dicho tipo, por ejemplo</p>    
+        <p class="code block">
+            p:nth-of-type(3) { <br />
+                &emsp;color: red;<br />    
+            }<br />
+            <br />
+        </p>
+        <div class="example">
+            <p>No voy a ser estilizado</p>
+            <h3>Esto es un h3 y no se tiene en cuenta</h3>
+            <p>No voy a ser estilizado</p>
+            <p>¡Voy a ser estilizado!</p>
+            <p>No voy a ser estilizado</p>
+        </div> 
+        <br />
+        <p>En cambio, si dentro de los paréntesis se utiliza una fórmula con el valor n, n irá tomando los valores sucesivos 1, 2, etc <br>
+        y se irá aplicando a los elementos que estén en la posición resultante final</p>
+        <p class="code block">
+            p:nth-of-type(2n) { <br />
+                &emsp;color: red;<br />    
+            }<br />
+            <br />
+        </p>
+        <div class="example-2">
+            <p>No Voy a ser estilizado</p>
+            <p>¡Voy a ser estilizado! n=1</p>
+            <p>No Voy a ser estilizado</p>
+            <p>¡Voy a ser estilizado! n=2</p>
+            <p>No Voy a ser estilizado</p>
+            <p>¡Voy a ser estilizado! n=3</p>
+        </div>
+        <br>
+        <p>Esto se usa mucho a la hora de hacer grillas, ya que podemos definir <br>
+        fácilmente que elemento va a pasar a una nueva línea</p>
+        <p class="code block">
+                img { <br />
+                    &emsp;float: left;<br />    
+                }<br />
+                <br />
+                img:nth-of-type(3n + 4) { <br />
+                    &emsp;clear: both;<br />    
+                }<br />
+                <br />
+            </p>
+        <div class="example-3">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+            <img src="../img/landscape.jpg" alt="">
+        </div>
+    </section>
+</body>
+</html>

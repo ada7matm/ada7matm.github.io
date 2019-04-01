@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Media queries</title>
+    <link rel="stylesheet" href="../css/media-query.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Media queries</h1>
+    <br />
+    <p>Un media query es una regla de estilos que aplica dicho estilos cuando sus condiciones se cumplen.<p>
+    <p>La sintaxis que utiliza es la siguiente:</p>
+    <p class="code block">@media (condicion) {<br />
+        &emsp;.elemento-a-modificar {<br />
+            &emsp;&emsp;propiedad-a-modificar: nuevo-valor;<br />    
+            &emsp;}<br />
+        }<br />
+    </p>
+    <br />
+    <p>Dentro de un media query, modificar modificar todos los elementos que querramos, y alterar cualquiera de sus propiedades.</p>
+    <br />
+    <h2>max-width</h2>
+    <br />
+    <p>Es una condición que se cumple siempre que el ancho en pixeles del dispositivo sea <b>menor</b> al indicado. Es decir, <br />
+        la regla se cumple para dispositivos con un ancho de pantalla <b>hasta</b> el valor indicado.    
+    <p>
+    <br />
+    <p>Por ejemplo, la siguiente media query</p>
+    <p class="code block">@media (max-width: 900px) {<br />
+            &emsp;.one {<br />
+                &emsp;&emsp;background-color: darkolivegreen;<br />
+                &emsp;}<br />
+        }
+    </p>       
+    <p>aplica el nuevo estilo al elemento <span class="code">.one</span> cuando<br />
+    la pantalla del dispositvo es menor a 900px</p>
+    <br /> 
+    <div class="container-example one"></div>
+    <br />
+    <br />
+    <p>Si dos reglas de <span class="code">max-width</span> son válidas, gana la de menor valor. Por ejemplo, para:
+    <p class="code block">
+            @media (max-width: 900px) { <br />
+                &emsp;.two { <br />
+                    &emsp;&emsp;background-color: darkolivegreen; <br />
+                    &emsp;} <br />
+            }<br />
+            <br />
+            @media (max-width: 800px) { <br />
+                &emsp;.two { <br />
+                    &emsp;&emsp;background-color: darksalmon; <br />
+                    &emsp;} <br />
+            }
+    </p>        
+    <br /> 
+    <br /> 
+    <div class="container-example two"></div>
+    <br />
+    <p>Cuando la pantalla es menor a 800px, si bien los dos media queries son válidos, aplica el <b>menor</b> de ellos</p>
+    <br />
+    <br />
+    <h2>min-width</h2>
+    <br />
+    <p>Es una condición que se cumple siempre que el ancho en pixeles del dispositivo sea <b>mayor</b> al indicado. Es decir, <br />
+        la regla se cumple para dispositivos con un ancho de pantalla <b>a partir</b> del valor indicado.    
+    <p>
+    <br />
+    <p>Por ejemplo, la siguiente media query</p>
+    <p class="code block">@media (min-width: 900px) {<br />
+            &emsp;.three {<br />
+                &emsp;&emsp;background-color: darkorange;<br />
+                &emsp;}<br />
+        }
+    </p>       
+    <p>aplica el nuevo estilo al elemento <span class="code">.three</span> cuando<br />
+    la pantalla del dispositvo es mayor a 900px</p>
+    <br /> 
+    <div class="container-example three"></div>
+    <br />
+    <p>Si dos reglas de <span class="code">min-width</span> son válidas, gana la de <b>mayor</b> valor. Por ejemplo, para:</p>
+    <p class="code block">
+            @media (min-width: 900px) { <br />
+                &emsp;.four { <br />
+                    &emsp;&emsp;background-color: darkred; <br />
+                    &emsp;} <br />
+            }<br />
+            <br />
+            @media (min-width: 1000px) { <br />
+                &emsp;.four { <br />
+                    &emsp;&emsp;background-color: chocolate; <br />
+                    &emsp;} <br />
+            }
+    </p>        
+    <br /> 
+    <br /> 
+    <div class="container-example four"></div>
+    <br />
+    <p>Cuando la pantalla es mayor a 1000px, si bien los dos media queries son válidos, aplica el mayor de ellos.</p>
+    <br />
+    <br />
+    <p>Si dos reglas de <span class="code">min-width</span> y <span class="code">max-width</span> son válidas, gana la de <span class="code">max-width</span>. Por ejemplo, para:</p>
+    <p class="code block">
+            @media (max-width: 1100px) { <br />
+                &emsp;.five { <br />
+                    &emsp;&emsp;background-color: lightcoral; <br />
+                    &emsp;} <br />
+            }<br />
+            <br />
+            @media (min-width: 800px) { <br />
+                &emsp;.five { <br />
+                    &emsp;&emsp;background-color: lawngreen; <br />
+                    &emsp;} <br />
+            }
+    </p>        
+    <br /> 
+    <br /> 
+    <div class="container-example five"></div>
+    <br />
+    <p>Cuando la pantalla es menor a 1100px y mayor a 800px, si bien los dos media queries son válidos, aplica el de <span class="code">max-width</span>.</p>
+    <br />
+    <br />
+    <h2>Combinando reglas</h2>
+    <br />
+    <p>Podemos combinar dos reglas de <span class="code">min-width</span> y <span class="code">max-width</span> para definir una rango en donde se aplicaran los estilos. Por ejemplo, para:</p>
+    <p class="code block">
+            @media (min-width: 800px) and (max-width: 1100px) { <br />
+                &emsp;.six { <br />
+                    &emsp;&emsp;background-color: lightcoral; <br />
+                    &emsp;} <br />
+            }<br />
+            <br />
+    </p>        
+    <br /> 
+    <br /> 
+    <div class="container-example six"></div>
+    <br />
+    <p>Cuando la pantalla es menor a 1100px y mayor a 800px, ambos media queries son válidos, por lo tanto se aplican los estilos.</p>
+    <br />
+    <br />
+    <h2>Orientación</h2>
+    <br />
+    <p>Es una condición que se cumple dependiendo de la orientación de la pantalla, que puede ser <span class="code">orientation: landscape</span> (horizontal)<br /> 
+        y <span class="code">orientation: portrait</span> (vertical). Se puede combinar con otras condiciones.</p>
+    <p class="code block">
+            @media (orientation: landscape) { <br />
+                &emsp;.seven { <br />
+                    &emsp;&emsp;background-color: hotpink; <br />
+                    &emsp;} <br />
+            }<br />
+            <br />
+            @media (orientation: portrait) { <br />
+                &emsp;.seven { <br />
+                    &emsp;&emsp;background-color: indigo; <br />
+                    &emsp;} <br />
+            }<br />
+            <br />
+    </p>        
+    <br /> 
+    <br /> 
+    <div class="container-example seven"></div>
+    <br />
+    <br />
+    <h2>Layout</h2>
+    <br />
+    <p>Si vamos combinando distintos media queries y ajustando los anchos y los flotados de los elementos, podemos <br />
+    ir modificando la disposición general del layout de la página dependiendo del ancho del dispositivo</p>
+    <br />
+    <br />
+    <div class="box-1"></div>
+    <div class="box-2"></div>
+    <div class="box-3"></div>
+    <div class="box-4"></div>
+    <div class="box-5"></div>
+</body>
+</html>

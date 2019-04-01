@@ -1,0 +1,57 @@
+body {
+    font-family: 'Montserrat', 'Helvetica';
+    text-align: center;
+    margin: 0;
+    color: white;
+    background-image: url("../img/code.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #040218;
+}
+a {
+    color: white;
+}    
+h1 {
+    clear: both;
+    font-weight: 800;
+    font-size: 64px;
+    color: #bc3b69;
+}
+
+a {
+    display: block;
+}
+
+a:visited {
+    color: white;
+}
+
+h2:hover {
+    color: #bc3b69;
+    background-color: white;
+}
+
+img {
+    float: left;
+}
+
+.container {
+    clear: both;
+    width: 80%;
+    max-width: 600px;
+    margin: 80px auto 0;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 15px 24px 6px rgba(255, 255, 255, 0.3);
+}
+
+.header {
+    background-color: white;
+    overflow: hidden;
+}
+
+.body {
+    background-color: #bc3b69;
+    overflow: hidden;
+    padding: 50px 0; 
+}

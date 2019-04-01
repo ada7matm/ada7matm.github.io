@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Posicionamiento</title>
+    <link rel="stylesheet" href="../css/position.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Posicionamiento</h1>
+    
+    <br />
+    <section>
+        <h2 class="code">position: static</h2>
+        <p>Es el posicionamiento por defecto de todos los elementos. No nos permite acceder a las propiedades <span class="code">top</span>, <span class="code">right</span>
+            <span class="code">bottom</span> y <span class="code">left</span>.</p>
+        <br />
+        <div id="static" class="position-container">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="code">position: relative</h2>
+        <p>Un elemento posicionado relativamente lo está con respecto a su posición original. El origen (0, 0) es el punto superior izquierdo <br /> de su
+            posición original. Mantiene la posición del resto de los elementos como si estuviera posicionado estáticamente.
+        </p>
+        <br />
+        <div id="relative" class="position-container">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <p>A diferencia de <span class="code">margin</span>, los atributos de posicionamiento <span class="code">top</span>, <span class="code">right</span>
+            <span class="code">bottom</span> y <span class="code">left</span> no empujan a los demás elementos
+        </p>
+        <br />
+        <div id="relative-with-margin" class="position-container">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="code">position: absolute</h2>
+        <p>Un elemento posicionado absolutamente lo está con respecto a la posición del primer elemento padre (o que lo contenga)<br /> que <strong>no esté posicionado estáticamente</strong>, o del documento si no hay ninguno. <br />
+            El origen (0, 0) es el punto superior izquierdo de este elemento padre. <br /> No mantiene la posición del resto de los elementos, sino que se sale del flujo del documento y deja libre su posición.
+        </p>
+        <p>En este caso, el primer elemento que lo contiene no está posicionado relativamente, <br /> por lo que sigue buscando en la jerarquía de elementos hasta encontrar uno.
+        </p>
+        <br />        
+        <div id="absolute-with-parent" class="position-container">
+            <div class="box one"></div>
+            <div class="box two">position: absolute</div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <p>En este otro, el elemento padre que los contiene sí está posicionado relativamente</p>
+        <div id="absolute" class="position-container">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <p>A diferencia de los elementos posicionados relativamente, los márgenes de los posicionados absolutamente no empujan a otros elementos, <br />
+        sólo se empujan a sí mismos con respecto al elemento a partir del cuál se posicionan.    
+        </p>
+        <br />
+        <br />
+        <p>Posicionar elementos absolutamente es muy útil a la hora de incluir elementos dentro de imágenes</p> 
+        <br />
+        <div class="img-container">
+            <img src="../img/landscape.jpg" alt="">
+            <div class="inner-img-box">
+                <h3>LOREM IPSUM</h3>
+            </div>
+        </div>
+        <br />
+        <p>En este caso, el elemento <span class="code">h3</span> está posicionado absolutamente con respecto a su elemento padre, que también <br />
+        tiene posición absoluta.</p>
+    </section>
+
+    <section>
+        <h2 class="code">position: fixed</h2>
+        <p>Funciona igual que un elemento posicionado absolutamente, sólo que el punto de origen de referencia es siempre el de la pantalla,<br /> 
+            se posiciona con respecto a esta y queda fijo en la misma no importa lo que se scrollee.
+        </p>
+        <br />        
+        <div id="fixed" class="position-container">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three">position: fixed</div>
+            <div class="box four"></div>
+        </div>
+        <br />
+        <br />
+        <br />
+    </section>
+
+    <section>
+        <h2 class="code">z-index</h2>
+        <p>Es una propiedad numérica que nos indica cuán adelante está un elemento en el eje z. <br />Por defecto, los elementos posicionados tienen un
+            <span class="code">z-index: 0</span>, y se colocan uno encima de otro según el orden en que están declarados en el html.<br /> Si queremos alterar este
+            orden, tenemos que modificar dicho índice.
+        </p>
+        <br />        
+        <div class="z-index position-container">
+            <div class="box one">z-index: 0</div>
+            <div class="box two">z-index: 0</div>
+            <div class="box three">z-index: 0</div>
+            <div class="box four">z-index: 0</div>
+        </div>
+        <br />
+        <br />
+        <br />        
+        <div id="two" class="z-index position-container">
+            <div class="box one">z-index: 0</div>
+            <div class="box two">z-index: 1</div>
+            <div class="box three">z-index: 0</div>
+            <div class="box four">z-index: 0</div>
+        </div>
+        <br />
+        <br />
+        <br />   
+        <div id="three" class="z-index position-container">
+            <div class="box one">z-index: 0</div>
+            <div class="box two">z-index: 1</div>
+            <div class="box three">z-index: 2</div>
+            <div class="box four">z-index: 0</div>
+        </div>
+        <br />
+    </section>
+</body>
+</html>
