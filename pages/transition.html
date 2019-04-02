@@ -161,6 +161,24 @@
     <br>
     <br>
     <br>
+
+    <div class="warning">
+        <h2>Compatibilidad cross-browser</h2>
+        <p>Cuando usemos propiedades de transición, debemos aplicar los vendors correspondientes para que sean <br>
+        reproducibles en todos los navegadores, ya que cada uno lo implementa a su manera:</p>
+        <br>
+        <p class="code block">
+           <b>-webkit-</b>transition: left 1.5s ease 0.2s; <br>
+           <b>-moz-</b>transition: left 1.5s ease 0.2s; <br>
+           <b>-ms-</b>transition: left 1.5s ease 0.2s; <br>
+           <b>-o-</b>transition: left 1.5s ease 0.2s; <br>
+            transition: left 1.5s ease 0.2s;
+        </p>
+    </div>
+
+    <br>
+    <br>
+
     <h2>Demos</h2>
     <p>Un par de ejemplos de cosas que se pueden hacer con transiciones</p>
     <br>
