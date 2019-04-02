@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transiciones</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../css/transition.css">
+    <script> </script>
+</head>
+<body>
+    <h1>Transiciones</h1>
+    <br>
+    <p>Una transición es el pasaje del valor de la propiedad de un elemento a un nuevo valor. <br>
+    Con CSS podemos definir cómo se realiza esa transición, cuánto demora en realizarse, si se produce con delay, etc.</p>
+    <p>Se usa mucho en conjunto con la pseudo clase <span class="code">:hover</span>. Primero definimos que propiedad queremos <br>
+    que transicione y cómo lo hará, y cuando el elemento se encuentra con el estado <span class="code">hover</span>, le asignamos a <br>
+    dicha propiedad el nuevo valor que queremos que tenga.</p>
+    <br>
+    <br>
+
+    <h2 class="code">transition-property</h2>
+    <br>
+    <p>Nos permite definir que propiedades queremos que vayan a transicionar, separadas por coma en caso de que sean varias:</p>
+
+    <p class="code block">
+        .example-1 { <br>
+            &emsp;transition-property: background-color, width; <br>    
+        }
+    </p>
+    <br>
+    <p>También podemos usar <span class="code">transition-property: all</span> para transicionar todas <br>
+    las propiedades que modifiquemos.</p>
+    <br>
+    <br>
+    <br>
+
+    <h2 class="code">transition-duration</h2>
+    <br>
+    <p>Nos permite definir la duración de la transición en segundos. Si hemos definido varias propiedades diferentes a transicionar, <br>
+    podemos asignar duraciones distintas a cada transición, separándolas por coma, en el orden en que las hemos declarado:</p>
+
+    <p class="code block">
+        .box { <br>
+            &emsp;width: 150px; <br>
+            &emsp;background-color: crimson; <br>
+            &emsp;transition-property: background-color, width; <br>    
+            &emsp;<b>transition-duration: 2s, 0.5s;</b><br>
+        } <br>
+        .box:hover { <br>
+            &emsp;background-color: goldenrod; <br>
+            &emsp;width: 200px; <br>
+        }
+    </p>
+    <div class="example-1">Hover me!</div>
+    <br>
+    <p>En este caso, el <span class="code">background-color</span> tarda mucho más que <br>
+    <span class="code">width</span> en transicionar.</p>
+    <br>
+    <br>
+    <br>
+
+    <h2 class="code">transition-timing-function</h2>
+    <br>
+    <p>Nos permite definir la función de tiempo con la que transicionará la propiedad. Si hemos definido varias propiedades diferentes a transicionar, <br>
+    podemos asignar funciones distintas a cada transición, separándolas por coma, en el orden en que las hemos declarado:</p>
+
+    <p class="code block">
+        .box { <br>
+            &emsp;left: 0px; <br>
+            &emsp;transition-property: left; <br>    
+            &emsp;transition-duration: 2s; <br>
+            &emsp;<b>transition-timing-function: ease;</b> <br>
+        } <br>
+        .box:hover { <br>
+            &emsp;left: 490px; <br>
+        }
+    </p>
+    <div class="examples-container">
+        <div class="box example-6">linear</div>
+        <div class="box example-2">ease</div>
+        <div class="box example-3">ease-in</div>
+        <div class="box example-4">ease-in-out</div>
+        <div class="box example-5">ease-out</div>
+    </div>
+    <br>
+    <br>
+    <p>Una función de tiempo es una función que indica qué velocidad va a tener la transición a cada momento, <br>
+    permitiendo que varíe su velocidad a lo largo de su duración.</p>
+    <p>Se definen a través de lo que se llaman "curvas de bezier". Podemos generar nuestra propia curva de bezier, <br>
+    a partir de cuatro valores.</p>
+    <img src="../img/bezier.png" alt="">
+    <br>
+    <p class="code block">
+        .box{ <br>
+            &emsp;transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06); <br>
+        } 
+    </p>
+    <div class="examples-container">
+        <div class="box example-7">custom</div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <h2 class="code">transition-delay</h2>
+    <br>
+    <p>Nos permite definir el delay, o retraso, con el que se iniciará la transición. Si hemos definido varias propiedades diferentes a transicionar, <br>
+    podemos asignar funciones distintas a cada transición, separándolas por coma, en el orden en que las hemos declarado:</p>
+
+    <p class="code block">
+        .box { <br>
+            &emsp;left: 0px; <br>
+            &emsp;transition-property: left; <br>    
+            &emsp;transition-duration: 2s; <br>
+            &emsp;transition-timing-function: ease; <br>
+            &emsp;<b>transition-delay: 0.2s;</b> <br>
+        } <br>
+        .box:hover { <br>
+            &emsp;left: 490px; <br>
+        }
+    </p>
+    <div class="examples-container">
+        <div class="box example-8">0.2s</div>
+        <div class="box example-9">0.4s</div>
+        <div class="box example-10">0.6s</div>
+        <div class="box example-11">0.8s</div>
+        <div class="box example-12">1s</div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <h2 class="code">transition</h2>
+    <br>
+    <p>Es la forma de abreviar y reunir en una sola propiedad todas las propiedades anteriores. Su sintaxis es:</p>
+    <br>
+    <p class="code block">transition: ([transition-property]) [transition-duration] <br> 
+        ([transition-timing-function]) ([transition-delay]);</p>
+    <p>Las que están entre paréntesis son opcionales y se resuelven en valores default (all, ease, 0s) si no se definen. <br>
+        También podemos especificar transiciones diferentes para propiedades distintas, separándolas por coma:</p>    
+    <p class="code block">
+        .box { <br>
+            &emsp;left: 0px; <br>
+            &emsp;background-color: burlywood; <br>
+            &emsp;border-radius: 0; <br>
+            &emsp;<b>transition: left 1.5s ease 0.2s,<br> 
+                &emsp;&emsp;background-color 1s ease-in-out, <br>
+                &emsp;&emsp;border-radius 1s ease-in 0.5s;</b> <br>
+        } <br>
+        .box:hover { <br>
+            &emsp;left: 490px; <br>
+            &emsp;background-color: brown; <br>
+            &emsp;border-radius: 50%; <br>
+        }
+    </p>
+    <div class="examples-container">
+        <div class="box example-13">transition</div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2>Demos</h2>
+    <p>Un par de ejemplos de cosas que se pueden hacer con transiciones</p>
+    <br>
+    <a href="https://tympanus.net/Development/HoverEffectIdeas/">DEMO 1</a>
+    <a href="https://tympanus.net/Tutorials/CaptionHoverEffects/">DEMO 2</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

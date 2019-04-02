@@ -1,0 +1,133 @@
+body {
+    font-family: 'Montserrat', 'Helvetica';
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    color: #bc3b69;
+}
+
+h2 {
+    display: inline-block;
+    color: #bc3b69;
+}
+
+.code {
+    font-family: 'Courier new';
+    background-color: lightgray;
+    padding: 0 5px;
+}
+
+.code.block {
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+}
+
+.example-1 {
+    width: 150px;
+    height: 100px;
+    margin: 0 auto;
+    color: white;
+    line-height: 100px;
+    background-color: crimson;
+    transition-property: background-color, width;
+    transition-duration: 2s, 0.5s; 
+}
+
+.example-1:hover {
+    background-color: goldenrod;
+    width: 250px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: cadetblue;
+    margin: 5px;
+    position: relative;
+    left: 0;
+    border-radius: 5px;
+    line-height: 100px;
+    color: white;
+    transition-property: left;
+    transition-duration: 1.5s;
+}
+
+.examples-container {
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.examples-container:hover .box {
+    left: 490px;
+}
+
+.example-2 {
+    transition-timing-function: ease;
+}
+.example-3 {
+    transition-timing-function: ease-in;
+}
+.example-4 {
+    transition-timing-function: ease-in-out;
+}
+.example-5 {
+    transition-timing-function: ease-out;
+}
+.example-6 {
+    transition-timing-function: linear;
+}
+.example-7 {
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.example-8 {
+    transition-delay: 0.2s;
+}
+.example-9 {
+    transition-delay: 0.4s;
+}
+.example-10 {
+    transition-delay: 0.6s;
+}
+.example-11 {
+    transition-delay: 0.8s;
+}
+.example-12 {
+    transition-delay: 1s;
+}
+.example-13 {
+    background-color: burlywood;
+    border-radius: 0;
+    transition: left 1.5s ease 0.2s, background-color 1s ease-in-out, border-radius 1s ease-in 0.5s;;
+}
+
+.examples-container:hover .example-13 {
+    background-color: brown;
+    border-radius: 50%;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+a {
+    width: 100px;
+    line-height: 30px;
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 5px 25px;
+    border: 2px solid black;
+    margin: 10px auto;
+    transition: .3s;
+}
+
+a:hover {
+    color: white;
+    background-color: black;
+}
