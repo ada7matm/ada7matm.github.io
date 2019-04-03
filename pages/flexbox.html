@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexbox</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../css/flexbox.css">
+</head>
+<body>
+    <h1 class="title">Flexbox</h1>
+    <p>El módulo de <b class="important">flexbox</b> de CSS es una nueva forma de organizar, distribuir y alinear <br>
+    el layout de elementos html, permitiéndoles incluso ocupar espacio de contenedores con tamaño <br>
+    desconocido o variable (de ahí lo "flexible").</p>
+    <br>
+    <p>La idea básica de <b class="important">flexbox</b> es darle al contenedor la <br>
+    capacidad de distribuir su espacio sobrante entre cada uno de los items que contiene, <br>
+    permitiéndoles crecer o achicarse según corresponda el caso.</p>
+    <br>
+    <br>    
+    
+    <h1>Las bases</h1>
+    <br>
+    <h2 class="code">display: flex</h2>
+    <br>
+    <p>Es la propiedad que le vamos a agregar al contenedor para volverlo un contenedor flexible.</p>
+    <p class="code block">
+        .container { <br>
+            &emsp;<b>display: flex;</b><br>    
+        }
+    </p>
+    <br>
+    <br>
+
+    <h2 class="code">flex-direction</h2>
+    <br>
+    <p>Establece la dirección principal en la que se van a colocar los elementos <br>
+    dentro del contenedor.</p>
+    <br>
+
+    <div class="col-2">
+        <h3>row</h3>
+        <p>Posiciona los elementos a lo largo del eje X, en fila, horizontalmente:</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;display: flex; <br>    
+                &emsp;<b>flex-direction: row;</b><br>    
+            }
+        </p>
+        <br>
+        <br>
+
+        <div class="container example-1">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </div>
+        <br>
+    </div>
+    <div class="col-2">
+        <h3>row-reverse</h3>
+        <p>Posiciona todos los elementos a lo largo del eje X, pero de atrás para adelante:</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;display: flex; <br>    
+                &emsp;<b>flex-direction: row-reverse;</b><br>    
+            }
+        </p>
+        <br>
+        <br>
+        <div class="container example-2">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </div>
+    </div>    
+    <div class="col-2 clear">
+        <h3>column</h3>
+        <p>Posiciona todos los elementos a lo largo del eje Y, verticalmente, como en una columna:</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;display: flex; <br>    
+                &emsp;<b>flex-direction: column;</b><br>    
+            }
+        </p>
+        <br>
+        <br>
+        <div class="container example-3">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </div>
+        <br>
+    </div>    
+    <div class="col-2">
+        <h3>column-reverse</h3>
+        <p>Posiciona todos los elementos a lo largo del eje Y, pero de atrás para adelante:</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;display: flex; <br>    
+                &emsp;<b>flex-direction: column-reverse;</b><br>    
+            }
+        </p>
+        <br>
+        <br>
+        <div class="container example-4">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+        </div>
+    </div>
+    
+    <br class="clear">
+    <br>
+    <br>
+    <h2 class="code">order</h2>
+    <br>
+    <p>Es una propiedad que se le da a los elementos dentro de un contenedor flexible <br>
+    para cambiar el orden en que se ubican. Se indica simplemente con un número. <br>
+    Por defecto todos tienen orden 0. Si dos elementos tienen el mismo orden, se distribuyen según el html.</p>
+
+    <p class="code block">
+        .item-2 { <br>
+            &emsp;<b>order: 2;</b><br>    
+        }
+    </p>
+    <div class="container example-5">
+        <div class="item">1</div>
+        <div class="item item-2">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <br>
+    <br>
+    <p class="code block">
+        .item-2 { <br>
+            &emsp;<b>order: 3;</b><br>    
+        }<br>
+        .item-3 { <br>
+            &emsp;<b>order: 2;</b><br>    
+        }
+    </p>
+    <div class="container example-6">
+        <div class="item">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item">4</div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <h2 class="code">flex-basis</h2>
+    <br>
+    <p>Especifica el tamaño inicial del item, antes de que el espacio restante sea distribuido. Cuando se omite, se pone en 0. <br>
+    Si se utiliza la palabra <b>auto</b>, tomará como referencia el contenido del elemento, ya sea el ancho o el alto, <br>
+    dependiendo de la orientación del contenedor.
+    </p>
+    <br>
+    <div class="col-2">
+        <p class="code block">
+            .item-1 { <br>
+                &emsp;<b>flex-basis: 400px;</b><br>    
+            }
+            .item-2 { <br>
+                &emsp;<b>flex-basis: 100px;</b><br>    
+            }
+        </p>
+        <div class="container example-11">
+            <div class="item item-1">1</div>
+            <div class="item item-2">2</div>
+        </div>
+        <br>
+    </div>
+    <div class="col-2">
+        <br>
+        <p class="code block">
+            .item { <br>
+                &emsp;<b>flex-basis: auto;</b><br>    
+            } <br>
+        </p>
+        <br>
+        <br>
+        <div class="container example-12">
+            <div class="item">short</div>
+            <div class="item">looooooooooooooooong</div>
+            <div class="item">short</div>
+        </div>
+    </div>
+
+    <br class="clear">
+    <br>
+    <br>
+    <h2 class="code">flex-grow</h2>
+    <br>
+    <p>Indica cuánto más espacio a tomar del espacio libre restante va a ocupar un elemento con respecto a otros. Por defecto es 0,<br>
+    es decir, no va a tomar ningún espacio libre. Si todos los elementos tienen un valor de 1, el espacio a ocupar se distribuye equitativamente entre ellos. <br>
+    Si uno de ellos toma el valor de 2, tomará el doble de estos.</p>
+    <br>
+    <div class="col-2">
+        <br>
+        <br>
+        <p class="code block">
+            .item-2 { <br>
+                &emsp;<b>flex-grow: 2;</b><br>    
+            }
+        </p>
+        <br>
+        <br>
+        <div class="container example-7">
+            <div class="item">1</div>
+            <div class="item item-2">2</div>
+            <div class="item">3</div>
+        </div>
+        <br>
+    </div>
+    <div class="col-2">
+        <p class="code block">
+            .item-2 { <br>
+                &emsp;<b>flex-grow: 2;</b><br>    
+            } <br>
+            .item-3 { <br>
+                &emsp;<b>flex-grow: 3;</b><br>    
+            } <br>  
+        </p>
+        <div class="container example-8">
+            <div class="item">1</div>
+            <div class="item item-2">2</div>
+            <div class="item item-3">3</div>
+        </div>
+    </div>
+
+    <br class="clear">
+    <br>
+    <br>
+    <h2 class="code">flex-shrink</h2>
+    <br>
+    <p>Indica hasta cuánto puede reducirse un elemento proporcionalmente con respecto a otros. Por defecto es 1.<br>
+    Si todos los elementos tienen un valor de 1, a medida que el contenedor se achica se reducirán equitativamente. <br>
+    Si uno de ellos toma el valor de 2, se reducirá a la mitad de estos.</p>
+    <br>
+    <div class="col-2">
+        <br>
+        <br>
+        <p class="code block">
+            .item-2 { <br>
+                &emsp;<b>flex-shrink: 2;</b><br>    
+            }
+        </p>
+        <br>
+        <br>
+        <div class="container example-9">
+            <div class="item">1</div>
+            <div class="item item-2">2</div>
+        </div>
+        <br>
+    </div>
+    <div class="col-2">
+        <p class="code block">
+            .item-2 { <br>
+                &emsp;<b>flex-shrink: 2;</b><br>    
+            } <br>
+            .item-3 { <br>
+                &emsp;<b>flex-shrink: 3;</b><br>    
+            } <br>  
+        </p>
+        <div class="container example-10">
+            <div class="item">1</div>
+            <div class="item item-2">2</div>
+            <div class="item item-3">3</div>
+        </div>
+    </div>
+
+    <br class="clear">
+    <br>
+    <br>
+    <h2 class="code">flex-wrap</h2>
+    <br>
+    <p>Le indica al contenedor si puede distribuir los elementos en más de una línea a medida que se va a achicando.<br>
+    El valor por defecto es <b>no-wrap</b> <br>
+    </p>
+    <br>
+    <p class="code block">
+        .container { <br>
+            &emsp;<b>flex-wrap: wrap;</b><br>    
+        }
+    </p>
+    <br>
+    <div class="container example-12">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <p class="code block">
+        .container { <br>
+            &emsp;<b>flex-wrap: wrap-reverse;</b><br>    
+        }
+    </p>
+    <br>
+    <div class="container example-13">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>    
+    <br>    
+    <br>    
+    
+    <h1>Subiendo la apuesta</h1>
+    <br>
+    <br>
+    <h2 class="code">justify-content</h2>
+    <br>
+    <p>Le indica al contenedor como tiene distribuir los elementos cuando hay espacio libre de sobra.</p>
+    <div class="col-2">
+        <h3>flex-start</h3>
+        <p>Posiciona los elementos al comienzo del contenedor (por defecto).</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>justify-content: flex-start;</b><br>    
+            }
+        </p>
+        <div class="container example-14">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>flex-end</h3>
+        <p>Posiciona los elementos al final del contenedor.</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>justify-content: flex-end;</b><br>    
+            }
+        </p>
+        <div class="container example-15">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2 clear">
+        <h3>center</h3>
+        <p>Posiciona los elementos en el medio del contenedor.</p>
+        <br>
+        <br>
+        <br>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>justify-content: center;</b><br>    
+            }
+        </p>
+        <div class="container example-16">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>space-around</h3>
+        <p>Les da a todos los elementos la misma distancia de separación a ambos lados. <br>
+        Los items de los extremos están más cerca del borde que de los items,<br>
+        porque entre el borde y ellos hay una distancia de separación, <br>
+        y entre ellos y los otros items, dos, una por cada uno.</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>justify-content: space-around;</b><br>    
+            }
+        </p>
+        <div class="container example-17">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2 clear">
+        <h3>space-between</h3>
+        <p>Posiciona un elemento al principio y otro al final del contenedor, <br> 
+            y distribuye los restantes entre estos dos, con espacio equitativo <br>
+        entre ellos.</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>justify-content: space-between;</b><br>    
+            }
+        </p>
+        <div class="container example-18">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>space-evenly</h3>
+        <p>Posiciona los elementos de forma tal que el espacio entre ellos <br>
+            y entre los bordes es el mismo.</p>
+        <br>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>justify-content: space-evenly;</b><br>    
+            }
+        </p>
+        <div class="container example-19">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+
+    <br class="clear">
+    <br>
+    <br>
+    <br>
+    <h2 class="code">align-items</h2>
+    <br>
+    <p>Definen cómo los items se alinean en el eje perpendicular al eje del contenedor.</p>
+    <div class="col-2">
+        <h3>flex-start</h3>
+        <p>Posiciona los elementos al comienzo de la línea perpendicular al eje del contenedor.</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-items: flex-start;</b><br>    
+            }
+        </p>
+        <div class="container example-20">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>flex-end</h3>
+        <p>Posiciona los elementos al final de la línea perpendicular al eje del contenedor.</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-items: flex-end;</b><br>    
+            }
+        </p>
+        <div class="container example-21">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2 clear">
+        <h3>center</h3>
+        <p>Posiciona los elementos en el medio de la línea perpendicular al eje del contenedor.</p>
+        <br>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-items: center;</b><br>    
+            }
+        </p>
+        <div class="container example-22">
+            <div class="item">1</div>
+            <div class="item item-2">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>stretch</h3>
+        <p>Estira los elementos para que llenen todo el espacio posible a través de la <br>
+        perpendicular al eje del contenedor (por defecto).</p>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-items: stretch;</b><br>    
+            }
+        </p>
+        <div class="container example-23">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    <br class="clear">
+    <h3>baseline</h3>
+    <p>Los elementos se distribuyen de forma tal que <br>
+    la base de línea del contenido de ellos queda alineado.</p>
+    <p class="code block">
+        .container { <br>
+            &emsp;<b>align-items: baseline;</b><br>    
+        }
+    </p>
+    <div class="container example-24">
+        <div class="item">1</div>
+        <div class="item item-2">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <br>
+    <br>
+    <h2 class="code">align-content</h2>
+    <br>
+    <p>Funciona como <b>justify-content</b>, pero distribuyendo el espacio que hay <br>
+    a lo largo del eje perpendicular al eje contenedor. Debe usarse en combinación con <b>flex-wrap</b>, <br>
+    ya que no funciona cuando el contenedor tiene una sola línea de elementos.</p>
+    <div class="col-2">
+        <h3>flex-start</h3>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-content: flex-start;</b><br>    
+            }
+        </p>
+        <div class="container example-25">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>flex-end</h3>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-content: flex-end;</b><br>    
+            }
+        </p>
+        <div class="container example-26">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+    <div class="col-2 clear">
+        <h3>center</h3>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-content: center;</b><br>    
+            }
+        </p>
+        <div class="container example-27">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>space-around</h3>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-content: space-around;</b><br>    
+            }
+        </p>
+        <div class="container example-28">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+    <div class="col-2 clear">
+        <h3>space-between</h3>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-content: space-between;</b><br>    
+            }
+        </p>
+        <div class="container example-29">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h3>stretch</h3>
+        <br>
+        <p class="code block">
+            .container { <br>
+                &emsp;<b>align-content: stretch;</b><br>    
+            }
+        </p>
+        <div class="container example-30">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+</body>
+</html>
