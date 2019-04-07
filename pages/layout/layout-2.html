@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout</title>
+    <link rel="stylesheet" href="../../css/layout.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Layout (2/16)</h1>
+    <div class="links">
+        <a href="layout-1.html" class="previous">Anterior</a>
+        <a href="layout-3.html" class="next">Siguiente</a>
+    </div>
+    <br>
+    <br>
+    <p>A la hora de empezar a analizar el layout, no hay que intentar abarcar todo de una. Primero tenemos que buscar las <b>divisiones</b> o secciones <b>más generales</b>, y 
+    a partir de ahí, irlas <b>subdividiendo</b> en secciones cada vez más pequeñas, hasta que ya no podamos subdividirlas más.</p>
+    <br>
+    <p>Si damos un pantallazo rápido a la página, notamos que inmediatamente se resaltan dos grandes secciones generales: una superior, que es el <span class="code">header</span>, y una inferior, dividida en dos filas, la primera de ellas, con noticias de menor relevancia, y la segunda, separada en <b>dos columnas</b>, 
+    la izquierda, donde se encuentra el contenido principal, o <span class="code">main</span>, y una derecha, que ocupa un ancho menor y, por lo tanto, de menor relevancia, que podemos nombrar como <span class="code">aside</span>. La estructura inicial de nuestro <b>html</b> nos quedaría más o menos así:</p>
+    <br>
+    <div class="code block">
+        &lt;header&gt;&lt;/header&gt; <br>
+        &lt;div class="content"&gt; <br>
+            &emsp;&lt;div class="small-news"&gt;&lt;/div&gt; <br>
+            &emsp;&lt;main&gt;&lt;/main&gt; <br>
+            &emsp;&lt;aside&gt;&lt;/aside&gt; <br>
+        &lt;/div&gt; <br>
+    </div>
+    <br>
+    <br>
+    <p>El layout definido de esta forma ocuparía todo el ancho de la página. Si quisiéramos que sólo ocupe una porción de la pantalla, y esté <b>centrado</b> respecto a esta, tenemos que 
+    englobar nuestro html dentro un <span class="code">div</span></p>
+    <br>
+    <div class="code block">
+        &lt;div class="column"&gt; <br>
+            &emsp;&lt;header&gt;&lt;/header&gt; <br>
+            &emsp;&lt;div class="content"&gt; <br>
+                &emsp;&emsp;&lt;div class="small-news"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;main&gt;&lt;/main&gt; <br>
+                &emsp;&emsp;&lt;aside&gt;&lt;/aside&gt; <br>
+            &emsp;&lt;/div&gt; <br>
+        &lt;/div&gt; <br>
+    </div>
+    <img src="../../img/layout-imgs/layout-2a.jpg" alt="">
+</body>
+</html>

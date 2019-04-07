@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout</title>
+    <link rel="stylesheet" href="../../css/layout.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Layout (16/16)</h1>
+    <div class="links">
+        <a href="layout-12.html" class="previous">Anterior</a>
+    </div>
+    <br>
+    <br>
+    <p>Finalmente, el <b>markup</b> de nuestro <b>layout</b>, a grandes rasgos, nos quedaría de la siguiente forma:</p>
+    <br>
+    <div class="code block">
+        <b>&lt;header&gt;</b><br>
+        &emsp;&lt;div class="top"&gt; <br>
+            &emsp;&emsp;&lt;div class="top-links"&gt; <br>
+                &emsp;&emsp;&emsp;&lt;div class="search-container"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&emsp;&lt;div class="language-links"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&emsp;&lt;div class="login-container"&gt;&lt;/div&gt; <br>
+            &emsp;&emsp;&lt;/div&gt; <br>
+            &emsp;&emsp;&lt;div class="logo-container"&gt; <br>
+                &emsp;&emsp;&emsp;&lt;p class="date"&gt;&lt;/p&gt; <br>
+                &emsp;&emsp;&emsp;&lt;img class="logo"&gt; <br>
+                &emsp;&emsp;&emsp;&lt;p class="current"&gt;&lt;/p&gt; <br>
+            &emsp;&emsp;&lt;/div&gt; <br>
+        &emsp;&lt;/div&gt; <br>
+        &emsp;&lt;nav&gt; <br>
+            &emsp;&emsp;&lt;ul&gt; <br>
+                &emsp;&emsp;&emsp;&lt;li&gt;&lt;/li&gt; <br>
+                &emsp;&emsp;&emsp;&lt;li&gt;&lt;/li&gt; <br>
+                &emsp;&emsp;&emsp;&lt;li&gt;&lt;/li&gt; <br>
+            &emsp;&emsp;&lt;/ul&gt; <br>
+        &emsp;&lt;/nav&gt; <br>
+        <b>&lt;/header&gt;</b> <br> <br>
+        <b>&lt;div class="content"&gt;</b> <br> <br>
+            <b>&emsp;&lt;div class="small-news"&gt;</b> <br>
+                &emsp;&emsp;&lt;div class="small-news-col"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;img class="small-news-img"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-news-text"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;div class="small-news-col"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;img class="small-news-img"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-news-text"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;div class="small-news-col"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;img class="small-news-img"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-news-text"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;div class="small-news-col"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="stock-market-info"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="weather-info"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/div&gt; <br>
+            <b>&emsp;&lt;/div&gt;</b> <br> <br>
+            <b>&emsp;&lt;main&gt;</b> <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="column-middle"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="medium-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="medium-colum-middle"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="half-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="half-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+            <b>&emsp;&lt;/main&gt;</b> <br> <br>
+            <b>&emsp;&lt;aside&gt;</b> <br>
+                &emsp;&emsp;&lt;section class="aside-section"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="left-column"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="right-column"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt;<br>
+                &emsp;&emsp;&lt;section class="aside-section"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="left-column"&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="right-column"&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&lt;article&gt;&lt;/article&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt;<br>
+                &emsp;&emsp;&lt;section class="aside-section"&gt; <br>
+                    &emsp;&emsp;&emsp;&emsp;&lt;article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class="left-column"&gt;&lt;/div&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class="right-column"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&emsp;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class="left-column"&gt;&lt;/div&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class="right-column"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&emsp;&lt;/article&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class="left-column"&gt;&lt;/div&gt; <br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&lt;div class="right-column"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&emsp;&lt;/article&gt; <br>
+                &emsp;&emsp;&lt;/section&gt;<br>
+            <b>&emsp;&lt;/aside&gt;</b> <br><br>
+        <b>&lt;/div&gt;</b> <br>
+    </div>
+    <br>
+    <img src="../../img/layout-imgs/layout-1.jpg" alt="">
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout</title>
+    <link rel="stylesheet" href="../../css/layout.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Layout (12/16)</h1>
+    <div class="links">
+        <a href="layout-8.html" class="previous">Anterior</a>
+        <a href="layout-10.html" class="next">Siguiente</a>
+    </div>
+    <br>
+    <br>
+    <p>Dividir estas secciones es un poco más complejo, por cada una está constituida por columnas de anchos diferentes. Por lo general este 
+        tipo de layouts se realiza con algún <b>framework</b> o <b>sistema de grillas</b>, como <b>bootstrap</b>, que nos facilita mucho la tarea. De
+        lo contrario, tenemos que estar definiendo los estilos de cada columna en particular.
+    </p>
+    <br>
+    <p>Si prestamos atención, vemos que varias de estás columnas tienen igual ancho que el de otras secciones, por lo que podemos aprovecharnos de esto para darle 
+        reutilizar ciertas clases.
+    </p>
+    <br>
+    <div class="code block">
+        &lt;div class="content"&gt; <br>
+            &emsp;&lt;main&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="column-middle"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="medium-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="medium-colum-middle"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="half-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="half-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+                &emsp;&emsp;&lt;section class="news-container"&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="small-column-left"&gt;&lt;/div&gt; <br>
+                    &emsp;&emsp;&emsp;&lt;div class="big-column-right"&gt;&lt;/div&gt; <br>
+                &emsp;&emsp;&lt;/section&gt; <br>
+            &emsp;&lt;/main&gt; <br>
+        &lt;/div&gt; <br>
+    </div>
+    <br>
+    <img src="../../img/layout-imgs/layout-9.jpg" alt="">
+</body>
+</html>
