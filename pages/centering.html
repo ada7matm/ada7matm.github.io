@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Centrado</title>
+    <link rel="stylesheet" href="../css/centering.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
+<body>
+    <h1>Centrado</h1>
+    <h3>(todos los trucos)</h3>
+    <br>
+    <h2>Horizontal</h2>
+    <h2 class="code">margin: auto</h2>
+    <br>
+    <p>Si tenemos un elemento en <b>bloque</b> (<span class="code">display: block</span>), y este tiene un <b>ancho determinado</b> (en px. o %),
+    podemos centrarlo usando <span class="code">margin: 0 auto</span> (el 0 no es obligatorio, puede ser una medida si queremos darle margen superior e inferior):</p>  
+    <p class="code block">
+        img { <br>
+            &emsp;display: block;<br>
+            &emsp;width: 200px;<br>
+            &emsp;<b>margin: 0 auto;</b><br>                
+        }
+    </p>
+    <br>
+    <img src="../img/cat_1.jpeg" alt="" class="example-5">
+    <br>
+    <br>
+    <p>El elemento se centra siempre con <b>respecto al ancho del elemento padre</b> o contenedor:</p>
+    <br>
+    <div class="example-2">
+        <div class="example-3">
+            <img src="../img/cat_1.jpeg" alt="" class="example-5">
+        </div>
+        <div class="example-4"></div>
+    </div>
+    <br>
+    <br>
+    <p>Si tenemos varios elementos flotados, y estos elementos tienen <b>ancho fijo</b>, podemos encerrarlos en un <span class="code">div</span>
+        que los contenga, con ancho suficiente para que entren todos en línea, y centrar este <span class="code">div</span> con la misma técnica. 
+        Poniendo <span class="code">overflow: hidden</span> al contenedor, si todos sus hijos están flotados, evitamos que colapse.
+    </p>
+    <p class="code block">
+        img { <br>
+            &emsp;display: block;<br>
+            &emsp;width: 200px;<br>
+            &emsp;margin: 10px;<br>                
+            &emsp;float: left;<br>                
+        } <br>
+        .container { <br>
+            &emsp;overflow: hidden;<br>
+            &emsp;width: 660px;<br>
+            &emsp;<b>margin: 0 auto;</b><br>                
+        } <br>
+    </p>
+    <br>
+    <div class="example-6">
+        <img src="../img/cat_1.jpeg" alt="" class="example-7">
+        <img src="../img/cat_1.jpeg" alt="" class="example-7">
+        <img src="../img/cat_1.jpeg" alt="" class="example-7">
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2 class="code">text-align: center</h2>
+    <p>Si tenemos uno o varios elementos en <b>línea</b>, podemos aprovecharnos de su comportamiento y centrarlo usando
+    <span class="code">text-align: center</span> en el elemento que lo contiene</p>
+    <br>
+    <p class="code block">
+        img { <br>
+            &emsp;display: inline-block;<br>
+            &emsp;width: 200px;<br>
+        } <br>
+        .container { <br>
+            &emsp;text-align: center;<br>
+        }<br>
+    </p>
+    <br>
+    <br>
+    <br>
+    <div class="example-8">
+        <img src="../img/cat_1.jpeg" alt="" class="example-9">
+        <img src="../img/cat_1.jpeg" alt="" class="example-9">
+        <img src="../img/cat_1.jpeg" alt="" class="example-9">
+    </div>
+    <br>
+    <br>
+    <p>Hay que tener cuidado porque si algunos de estos elementos <b>en línea</b>, tienen texto, estos se alinearán verticalmente
+    con línea de la base del texto por defecto</p>
+    <div class="example-10">
+        <div class="example-11">
+            <img src="../img/cat_1.jpeg" alt="" class="example-11">
+            <p>Titulo</p>
+        </div>
+        <div class="example-11">
+            <img src="../img/cat_1.jpeg" alt="" class="example-11">
+            <p>Titulo
+                <br>
+                Subtitulo
+                <br>
+                Subsubtitulo
+            </p>
+        </div>
+        <div class="example-11">
+            <img src="../img/cat_1.jpeg" alt="" class="example-11">
+            <p>Titulo <br> 
+            Subtitulo</p>
+        </div>
+    </div>
+    <br>
+    <p>Para evitar esto, debemos ponerle a los elementos en línea <span class="code">vertical-align: top</span></p>
+    <div class="example-10">
+        <div class="example-11 top">
+            <img src="../img/cat_1.jpeg" alt="" class="example-11">
+            <p>Titulo</p>
+        </div>
+        <div class="example-11 top">
+            <img src="../img/cat_1.jpeg" alt="" class="example-11">
+            <p>Titulo
+                <br>
+                Subtitulo
+                <br>
+                Subsubtitulo
+            </p>
+        </div>
+        <div class="example-11 top">
+            <img src="../img/cat_1.jpeg" alt="" class="example-11">
+            <p>Titulo <br> 
+            Subtitulo</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2 class="code">left: 50% y translateX</h2>
+    <p>Si un elemento en bloque está <b>posicionado</b>, de cualquier forma que no sea estática, podemos usar <span class="code">left: 50%</span> para moverlo a la mitad de su elemento contenedor, si está posicionado de forma <b>relativa</b>, o del elemento que tiene como referencia
+    si está posicionado <b>absolutamente</b>. Como el <span class="code">left: 50%</span> lo toma desde su punto (0,0), es decir, desde el extremo superior izquierdo, tenemos que moverlo hacia la izquierda la mitad de su ancho. Para esto 
+    usamos <span class="code">transform: translateX(-50%)</span>, para moverlo hacia atrás la mitad de su ancho</p>
+    <p class="code block">
+        img { <br>
+            &emsp;display: block;<br>
+            &emsp;width: 200px;<br>
+            &emsp;position: relative;<br>
+            &emsp;<b>left: 50%;</b><br>
+            &emsp;<b>transform: translateX(-50%);</b><br>
+        } <br>
+    </p>
+    <br>
+    <img src="../img/cat_1.jpeg" alt="" class="example-12">
+    <br>
+    <br>
+    <br>
+    <h2 class="code">flexbox</h2>
+    <br>
+    <p>Con flexbox la tarea se vuelve mucho más sencilla. Simplemente necesitamos de un contenedor flex y de 
+    definirle <span class="code">justify-content: center</span>
+    </p>
+    <br>
+    <p class="code block">
+        .container { <br>
+            &emsp;<b>display: flex;</b><br>
+            &emsp;<b>justify-content: center;</b><br>
+        }<br>
+    </p>
+    <br>
+    <div class="example-13">
+        <img src="../img/cat_1.jpeg" alt="" class="example-14">
+        <img src="../img/cat_1.jpeg" alt="" class="example-14">
+        <img src="../img/cat_1.jpeg" alt="" class="example-14">
+    </div>
+    <br>
+    <h2>Resumiendo</h2>
+    <br>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Un elemento en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Ancho definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">margin: 0 auto</span></span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Varios elementos en bloque flotados</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Ancho definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column">Contenedor con ancho fijo, <span class="code">overflow: hidden</span> <br> y <span class="code">margin: 0 auto</span></span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Uno o varios elementos en línea</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Ancho definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column">Contenedor con <span class="code">text-align: center</span> y <br> 
+        <span class="code">vertical-align: top</span> si tiene texto</span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Posicionado (no estático)</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Ancho definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">left: 50%</span> y <br> 
+        <span class="code">transform: translateX(-50%)</span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Uno o varios elementos en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Ancho definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column">Contenedor con <span class="code">display: flex</span> y <br> 
+        <span class="code">justify-content: center</span></span><br>
+    </div>
+    <br>
+    <br>
+    <h2>Vertical</h2>
+    <h2 class="code">line-height</h2>
+    <p>Si tenemos texto en <b>una sola línea</b>, podemos utilizar la propiedad <span class="code">line-height</span> para que el renglón tenga
+    el mismo alto que el elemento que lo contiene.</p>
+    <p class="code block">
+        .text { <br>
+            &emsp;position: absolute;<br>
+            &emsp;top: 0;<br>
+            &emsp;<b>line-height: 200px;</b><br>
+        }<br>
+    </p>
+    <div class="example-15">
+        <img src="../img/cat_1.jpeg" alt="" class="example-16">
+        <p>Gatito</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2 class="code">padding-top</h2>
+    <p>Si conocemos el alto del elemento y alto del contenedor, podemos tomar la diferencia y dividirla por dos, y asignarla al padding-top del contenedor</p>
+    <p class="code block">
+        .element { <br>
+            &emsp;height: 200px;<br>
+        } <br>
+        .container { <br>
+            &emsp;height: 300px; <br>
+            &emsp;<b>padding-top: 50px;</b><br>
+            &emsp;box-sizing: border-box; <br>    
+        }
+    </p>
+    <div class="example-17">
+        <img src="../img/cat_1.jpeg" alt="" class="example-18">
+    </div>
+    <br>
+    <br>
+    <h2 class="code">top: 50% y translateY(-50%)</h2>
+    <p>Si un elemento en bloque está <b>posicionado</b>, de cualquier forma que no sea estática, podemos usar <span class="code">top: 50%</span> para moverlo a la mitad de su elemento contenedor, si está posicionado de forma <b>relativa</b>, o del elemento que tiene como referencia
+    si está posicionado <b>absolutamente</b>. Como el <span class="code">top: 50%</span> lo toma desde su punto (0,0), es decir, desde el extremo superior izquierdo, tenemos que moverlo hacia arriba la mitad de su alto. Para esto 
+    usamos <span class="code">transform: translateY(-50%)</span>, para moverlo hacia arriba la mitad de su alto</p>
+    <p class="code block">
+        .text { <br>
+            &emsp;position: absolute;<br>
+            &emsp;top: 0;<br>
+            &emsp;<b>top: 50%;</b><br>
+            &emsp;<b>transform: translateY(-50%);</b><br>
+        } <br>
+    </p>
+    <div class="example-15">
+        <img src="../img/cat_1.jpeg" alt="" class="example-16">
+        <p class="text">Esto es <br>un texto largo</p>
+    </div>
+    <br>
+    <br>
+    <h2 class="code">flexbox</h2>
+    <br>
+    <p>Con flexbox sigue siendo más sencillo. Simplemente necesitamos de un contenedor flex con <span class="code">flex-direction: column</span> y de 
+    definirle <span class="code">justify-content: center</span>
+    </p>
+    <br>
+    <p class="code block">
+        .container { <br>
+            &emsp;<b>display: flex;</b><br>
+            &emsp;<b>flex-direction: column;</b><br>
+            &emsp;<b>justify-content: center;</b><br>
+        }<br>
+    </p>
+    <br>
+    <div class="example-19">
+        <img src="../img/cat_1.jpeg" alt="" class="example-20">
+    </div>
+    <br>
+    <br>
+    <h2>Resumiendo</h2>
+    <br>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Texto en una sola línea</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">line-height: alto contenedor</span></span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento con alto definido</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column">Contenedor con<span class="code">padding-top: ((altura-contenedor - altura-elemento) / 2)</span><br> 
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Posicionado (no estático)</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento con alto definido</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">top: 50%</span> y <br> 
+        <span class="code">transform: translateY(-50%)</span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Uno o varios elementos en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column">Contenedor con <span class="code">display: flex</span>, <span class="code">flex-direction: column</span> y <br> 
+        <span class="code">justify-content: center</span></span><br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2>Horizontal y Vertical</h2>
+    <h2 class="code">text-align y line-height</h2>
+    <p>Si es texto en una <b>sola línea</b>, y conocemos el <b>alto del contenedor</b>, podemos centrar el texto horizontalmente con <span class="code">text-align:center</span> y
+    verticalmente con la <span class="code">line-height</span> equivalente al alto del contenedor</p>
+    <p class="code block">
+        .text { <br>
+            &emsp;<b>line-height: 200px;</b><br>
+            &emsp;<b>text-align: center;</b><br>
+        }<br>
+    </p>
+    <div class="example-21">
+        <h3>Texto centrado</h3>
+    </div>
+    <br>
+    <br>
+    <h2 class="code">margin y padding</h2>
+    <p>Si es un <b>elemento en bloque</b>, y conocemos el alto del mismo y de su contenedor, podemos combinar las técnicas de <span class="code">margin: 0 auto</span> para centrarlo horizontalmente, y
+    darle al contenedor un <span class="code">padding-top</span> correspondiente a la mitad de la diferencia de sus alturas</p>
+    <p class="code block">
+        .element { <br>
+            &emsp;height: 200px;<br>
+            &emsp;<b>margin: 0 auto;</b><br>
+            &emsp;<b>display: block;</b><br>
+        } <br>
+        .container { <br>
+            &emsp;height: 300px; <br>
+            &emsp;<b>padding-top: 50px;</b><br>
+            &emsp;box-sizing: border-box; <br>    
+        }
+    </p>
+    <div class="example-22">
+        <img src="../img/cat_1.jpeg" alt="" class="example-23">
+    </div>
+    <br>
+    <br>
+    <h2 class="code">position y translate(-50%, -50%)</h2>
+    <p>Si un elemento en bloque está <b>posicionado</b>, de cualquier forma que no sea estática, podemos combinar ambas técnicas de centrado, y usar <span class="code">top: 50%</span>, <span class="code">left: 50%</span> y <span class="code">transform: translate(-50%, -50%)</span>. El elemento padre debe tener un alto determinado para que funcione.</p>
+    <p class="code block">
+        img { <br>
+            &emsp;position: absolute;<br>
+            &emsp;<b>top: 50%;</b><br>
+            &emsp;<b>left: 50%;</b><br>
+            &emsp;<b>transform: translate(-50%, -50%);</b><br>
+        } <br>
+    </p>
+    <div class="example-24">
+        <img src="../img/cat_1.jpeg" alt="" class="example-25">
+    </div>
+    <br>
+    <br>
+    <h2 class="code">flexbox</h2>
+    <p>Con <b>flexbox</b>, nuevamente podemos centrar horizontal y verticalmente con facilidad. Si tenemos un contenedor flex con ancho y alto definido, podemos centrar sus elementos usando
+    <span class="code">justify-content: center</span> para centrarlo horizontalmente, y <span class="code">align-items: center</span> para hacerlo verticalmente.</p>
+    <p class="code block">
+        .container { <br>
+            &emsp;display: flex;<br>
+            &emsp;width: 400px;<br>
+            &emsp;height: 300px;<br>
+            &emsp;<b>justify-content: center;</b><br>
+            &emsp;<b>align-items: center;</b><br>
+        } <br>
+    </p>
+    <div class="example-26">
+        <img src="../img/cat_1.jpeg" alt="" class="example-27">
+    </div>
+    <br>
+    <br>
+    <br>
+    <h2>Resumiendo</h2>
+    <br>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Texto en una sola línea</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">text-align:center</span> y <span class="code">line-height: altura-contenedor</span></span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento con alto y ancho definido</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">margin: 0 auto</span> para el elemento y <span class="code">padding-top: (altura-contenedor - altura-elemento) / 2</span> para el contenedor</span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento en bloque</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Posicionado (no estático)</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Elemento con alto definido</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column"><span class="code">top: 50%</span>, <span class="code">left: 50%</span> y <br> 
+        <span class="code">transform: translate(-50%, -50%)</span><br>
+    </div>
+    <div class="resume">
+        <i class="fas fa-check-circle"></i><span class="resume-column">Uno o varios elementos en bloque con alto definido</span><br>
+        <i class="fas fa-check-circle"></i><span class="resume-column">Contenedor con alto definido</span><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><span class="resume-column">Contenedor con <span class="code">display: flex</span>, <span class="code">justify-content: center</span> y <br> 
+        <span class="code">align-items: center</span></span><br>
+    </div>
+</body>
+</html>
