@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu desplegable</title>
+    <link rel="stylesheet" href="../../css/menu.css">
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Montserrat);</style>
+</head>
+<body>
+    <h1>Menu desplegable (3/7)</h1>
+    <div class="links">
+        <a href="menu-2.html" class="previous">Anterior</a>
+        <a href="menu-4.html" class="next">Siguiente</a>
+    </div>
+    <br>
+    <br>
+    <p>Dentro de cada <span class="code">menu-item</span> creamos un <span class="code">sub-menu</span> con sus propias opciones. Este submenu va a estar <b>posicionado absolutamente</b>, con respecto a su <span class="code">menu-item</span> padre, 
+        tendrá <span class="code">left: 0</span> y <span class="code">top</span> correspondiente al alto del menú.</p>
+    <div class="example example-3">
+        <ul class="menu">
+            <li class="menu-item">OPCION 1
+                <ul class="submenu">
+                    <li class="submenu-item">SUBOPCION 1</li>
+                    <li class="submenu-item">SUBOPCION 2</li>
+                    <li class="submenu-item">SUBOPCION 3</li>
+                </ul>
+            </li>
+            <li class="menu-item">OPCION 2</li>
+            <li class="menu-item">OPCION 3
+                <ul class="submenu">
+                    <li class="submenu-item">SUBOPCION 1</li>
+                    <li class="submenu-item">SUBOPCION 2</li>
+                    <li class="submenu-item">SUBOPCION 3</li>
+                </ul>
+            </li>
+            <li class="menu-item">OPCION 4</li>
+            <li class="menu-item">OPCION 5</li>
+        </ul>
+    </div> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col">
+        <div class="code block">
+            &lt;ul class="menu"&gt; <br>
+                &emsp;&lt;li class="menu-item"&gt;OPCION 1 <br>
+                    &emsp;&emsp;&lt;ul class="submenu"&gt; <br>
+                        &emsp;&emsp;&emsp;&lt;li class="submenu-item"&gt;SUBOPCION 1&lt;/li&gt; <br>
+                        &emsp;&emsp;&emsp;&lt;li class="submenu-item"&gt;SUBOPCION 2&lt;/li&gt; <br>
+                        &emsp;&emsp;&emsp;&lt;li class="submenu-item"&gt;SUBOPCION 3&lt;/li&gt; <br>
+                    &emsp;&emsp;&lt;/ul> <br>
+                &emsp;&lt;/li&gt; <br>
+                &emsp;&lt;li class="menu-item"&gt;OPCION 2&lt;/li&gt; <br>
+                &emsp;&lt;li class="menu-item"&gt;OPCION 3 <br>
+                    &emsp;&emsp;&lt;ul class="submenu"&gt; <br>
+                        &emsp;&emsp;&emsp;&lt;li class="submenu-item"&gt;SUBOPCION 1&lt;/li&gt; <br>
+                        &emsp;&emsp;&emsp;&lt;li class="submenu-item"&gt;SUBOPCION 2&lt;/li&gt; <br>
+                        &emsp;&emsp;&emsp;&lt;li class="submenu-item"&gt;SUBOPCION 3&lt;/li&gt; <br>
+                    &emsp;&emsp;&lt;/ul> <br>
+                &emsp;&lt;/li&gt; <br>
+                &emsp;&lt;li class="menu-item"&gt;OPCION 4&lt;/li&gt; <br>
+                &emsp;&lt;li class="menu-item"&gt;OPCION 5&lt;/li&gt; <br>
+            &lt;/ul>
+        </div>
+    </div>        
+    <div class="col">
+        <div class="code block">
+            .menu { <br>
+                &emsp;text-align: center; <br>
+                &emsp;margin: 0 auto; <br>
+                &emsp;display: inline-block; <br>
+                &emsp;padding: 0; <br>
+                &emsp;border-top: 2px solid brown; <br>
+                &emsp;border-bottom: 2px solid brown; <br>
+                &emsp;height: 35px; <br>
+                &emsp;background-color: bisque; <br>
+            } <br>
+            .menu-item { <br>
+                &emsp;text-align: center; <br>
+                &emsp;display: inline-block; <br>
+                &emsp;width: 150px; <br>
+                &emsp;font-size: 18px; <br>
+                &emsp;line-height: 35px; <br>
+                &emsp;position: relative; <br>
+            } <br>
+            .submenu { <br>
+                &emsp;position: absolute; <br>
+                &emsp;left: 0; <br>
+                &emsp;top: 35px; <br>
+                &emsp;padding: 0; <br>
+                &emsp;width: 150px; <br>
+                &emsp;list-style: none; <br>
+            }
+        </div>
+    </div>
+</body>
+</html>

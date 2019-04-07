@@ -1,0 +1,172 @@
+body {
+    font-family: 'Montserrat', 'Helvetica';
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    color: #bc3b69;
+    font-size: 64px;
+}
+
+h2 {
+    display: inline-block;
+    color: #bc3b69;
+}
+
+section {
+    margin-bottom: 100px;
+    position: relative;
+}
+
+section.float {
+    float: left;
+    width: 33.3%;
+}
+
+section.clear {
+    clear: both;
+}
+
+.code {
+    font-family: 'Courier new';
+    background-color: lightgray;
+    padding: 0 5px;
+}
+
+.code.block {
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+}
+
+p {
+    max-width: 800px;
+    width: 80%;
+    font-size: 18px;
+    margin: 0 auto;
+}
+
+.col {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+}
+
+
+.example {
+    margin-top: 100px;
+}
+
+.links {
+    overflow: hidden;
+    max-width: 800px;
+    width: 80%;
+    margin: 40px auto 0;
+}
+
+.previous {
+    float: left;
+    color: #bc3b69;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.next {
+    float: right;
+    color: #bc3b69;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.example-1 .menu {
+    text-align: left;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.example-2 .menu,
+.example-3 .menu,
+.example-4 .menu,
+.example-5 .menu,
+.example-6 .menu,
+.example-7 .menu {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 0;
+    border-top: 2px solid brown;
+    border-bottom: 2px solid brown;
+    height: 35px;
+    background-color: bisque;
+}
+
+.example-2 .menu-item,
+.example-3 .menu-item,
+.example-4 .menu-item,
+.example-5 .menu-item,
+.example-6 .menu-item,
+.example-7 .menu-item {
+    text-align: center;
+    display: inline-block;
+    width: 150px;
+    font-size: 18px;
+    line-height: 35px;
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    left: 0;
+    top: 35px;
+    padding: 0;
+    width: 150px;
+    list-style: none;
+}
+
+.example-4 .submenu,
+.example-5 .submenu,
+.example-6 .submenu,
+.example-7 .submenu {
+    background-color: bisque;
+    border-top: 2px solid brown;
+    border-bottom: 2px solid brown;
+}
+
+.submenu-item {
+    position: relative;
+}
+
+.example-5 .submenu,
+.example-6 .submenu,
+.example-7 .submenu {
+    visibility: hidden;
+}
+
+.example-5 .menu-item:hover .submenu,
+.example-6 .menu-item:hover .submenu,
+.example-7 .menu-item:hover .submenu {
+    visibility: visible;
+}
+
+.subsubmenu {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 200px;
+    list-style: none;
+    padding: 0;
+}
+
+.example-7 .subsubmenu {
+    visibility: hidden;
+    background-color: beige;
+    border-top: 2px solid brown;
+    border-bottom: 2px solid brown;
+    box-sizing: border-box;
+    margin-top: -2px;
+}
+
+.submenu-item:hover .subsubmenu {
+    visibility: visible
+}
