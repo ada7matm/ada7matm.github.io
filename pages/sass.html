@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sass</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sass.css">
+</head>
+<body>
+    <h1 class="title">Sass</h1>
+    <br>
+    <p>Sass es un <em>preprocesador</em> de css. Nos permite escribir estilos de forma un poco diferente a css,
+    que luego son procesados y convertidos a css de modo tal que el navegador los pueda interpretar. Al no regirse por la 
+    sintaxis de css, nos permite hacer otras cosas que son imposibles de hacer con puro css.</p>
+    <br>
+    <h2>Instalación</h2>
+    <p>Sass no se instala directamente. En cambio, necesitamos instalar primero una aplicación que nos permita instalarlo.
+        Para eso vamos a bajar <a href="https://nodejs.org/en/download/">Node.js</a>. Una vez que lo tenemos instalado, en
+        la consola de <b>Git Bash</b>, introducimos el siguiente comando:
+    </p>
+    <br>
+    <p class="code">npm install -g sass</p>
+    <br>
+    <br>
+    <p>Cuando termine de descargarse e instalarse, podemos probar que efectivamente esté instalado con:</p>
+    <br>
+    <p class="code">sass --version</p>
+    <br>
+    <br>
+    <p>Y debería aparecer la versión que tenemos en el sistema.</p>
+    <br>
+    <h2>Escuchando archivos</h2>
+    <br>
+    <p>Para que Sass convierta automáticamente los archivos con extensión .scss a archivos .css, tenemos que informarle cúales
+        son dichos archivos a los que tiene que prestar atención, y a dónde queremos que guarde los archivos compilados.
+    </p>
+    <br>
+    <p>Podemos hacer esto de dos formas, o diciéndole que escuche un archivo en particular:</p>
+    <br>
+    <p class="code">sass --watch styles.scss styles.css</p>
+    <br>
+    <br>
+    <p>donde <span class="code">styles.css</span> es el archivo sass y <span class="code">styles.css</span> es el archivo al que queremos
+    que compile nuestro código. Este comando tenemos que ejecutarlo desde <b>Git Bash</b> o desde la consola de Visual Studio, teniendo cuidado de estar
+    paradas en la carpeta del proyecto.</p>
+    <br>
+    <p>Los nombres de los archivos son rutas relativas, por lo tanto, van a depender desde que carpeta lo estamos ejecutando. A su vez, tenemos que poner la ruta completa
+        hacia el archivo, suponiendo que el archivos <span class="code">styles.css</span> esté en una carpeta css, tenemos que poner:</p>
+    <br>
+    <p class="code">sass --watch styles.scss css/styles.css</p>
+    <br>
+    <br>
+    <p>Otra forma de escuchar archivos es darle la instrucción a sass de que escuche carpetas directamente. En ese caso, va a buscar todos los archivos no parciales con extensión .scss que estén en la misma
+        y convertilos a sus equivalentes archivos css en la carpeta de destino. Esto lo indicamos así: 
+    </p>
+    <br>
+    <p class="code">sass --watch origen:destino</p>
+    <br>
+    <br>
+    <p>Donde origen y destino son los nombres de las carpetas respectivas. Si por ejemplo queremos que escuche el directorio styles y compile los archivos en la carpeta styles/css, lo indicamos de la siguiente manera:</p>
+    <br>
+    <p class="code">sass --watch styles:styles/css</p>
+    <br>
+    <br>
+    <br>
+    <h2>Variables</h2>
+    <br>
+    <p>Una de las cosas que podemos hacer con Sass es utilizar <b>variables</b>. Supongamos que en nuestras páginas usamos tres tipos de tipografías, que se comparten entre muchos elementos. Cuando terminamos de maquetarla, la diseñadora gráfica nos diciéndole
+    que necesitamos cambiar una de estas tipografías por otra. Si sucede esto, nos tocaría cambiar individualmente en cada uno de los elementos que utilicen esa fuente!</p>
+    <br>
+    <p>Por suerte podemos evitar esto con Sass. Sass nos permite crear <b>variables</b>, que son etiquetas que tienen asignadas un valor, por ejemplo, cierta tipografía. En vez de utilizar directamente esta fuente, podemos utilizar la variable.
+    Cada elemento que utilice esta variable luego es convertido a css utilizando el valor que contiene. Por eso, si luego tenemos que cambiar nuestra tipografía, simplemente cambiamos el valor de variable, y todos los elementos que la estén utilizando
+    se actualizarán automáticamente.</p>
+    <br>
+    <p>Una variable se declara de la siguiente forma:</p>
+    <br>
+    <p class="code">$nombre-variable: valor;</p>
+    <br>
+    <br>
+    <p>Por ejemplo:</p>
+    <br>
+    <p class="code">$main-font: "Roboto";</p>
+    <br>
+    <br>
+    <p>Y se utiliza simplemente llamándola con su nombre, anteponiendo el signo $, por ejemplo</p>
+    <br>
+    <p class="code">
+        h1 { <br>
+            &emsp;font-family: $main-font; <br>    
+        }
+    </p>
+    <br>
+    <br>
+    <p>Esto se traduce automática a css así:</p>
+    <br>
+    <p class="code">
+        h1 { <br>
+            &emsp;font-family: "Roboto"; <br>    
+        }
+    </p>
+    <br>
+    <p>Lo bueno de las variables es que al tener un nombre, le dan un valor más <i>semántico</i> a nuestros estilos, es decir, es más fácil entender qué es lo que estamos estilando porque los valores tienen un cierto significado más allá de su valores númericos o de texto.</p>
+    <br>
+    <p>Dentro de una variable podemos guardar cualquier tipo de valores que irían dentro de propiedades css, por ejemplo:</p>
+    <p class="code block">
+        $main-font-size: 15px;
+        $button-border: 2px solid $main-color;
+        $column-padding: 20px 30px;
+        $background-transition: transition 1s ease-in 0.1s;
+    </p>
+    <br>
+    <br>
+    <br>
+    <h2>Selectores anidados</h2>
+    <br>
+    <p>Otra de las cosas buenas que tiene Sass es que nos permite anidar selectores. Esto nos da una visualización más clara y evidente de la jerarquía de los elementos. Para anidar un selector dentro de otro,
+        simplemente tenemos que declararlo dentro de las llaves de este:
+    </p>
+    <br>
+    <p class="code block">
+        main {<br>
+            &emsp;width: 600px;<br>
+            <br>
+            &emsp;article {<br>
+                &emsp;&emsp;width: 300px;<br>
+                &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>Esto se traduce a css de la siguiente manera:</p>
+    <br>
+    <p class="code block">
+        main { width: 600px; } <br>
+        main article { width: 300px; }
+    </p>
+    <br>
+    <br>
+    <p>Podemos anidar todos los selectores que queramos dentro de un selector, por ejemplo:</p>
+    <br>
+    <p class="code block">
+        main {<br>
+            &emsp;width: 600px;<br>
+            <br>
+            &emsp;h1 { <br>
+                &emsp;&emsp;font-family: $main-font; <br>
+                &emsp;} <br>
+            <br>
+            &emsp;h2 { <br>
+                &emsp;&emsp;font-family: $secondary-font; <br>
+                &emsp;} <br>
+            <br>
+            &emsp;article {<br>
+                &emsp;&emsp;width: 300px;<br>
+                &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>Que convertido en css nos queda como:</p>
+    <br>
+    <p class="code block">
+        main { width: 600px; } <br>
+        main h1 { font-family: "Roboto"; } <br>
+        main h2 { font-family: "Montserrat"; } <br>
+        main article { width: 300px; }
+    </p>
+    <br>
+    <br>
+    <p>A su vez, podemos anidar selectores dentro de selectores todos los niveles que queramos. Si bien esto es perfectamente válido, nos es demasiado conveniente anidar
+        más de 3 o 4 niveles como mucho, ya que de otra forma nos queda una jerarquía muy rígida, y si cambiamos de orden algo en el html, nuestros estilos se van a romper ya que nuestra jerarquía no aplica más.
+    </p>
+    <br>
+    <p>
+        Por ejemplo, supongamos que tenemos en un archivo sass declarado lo siguiente:
+    </p>
+    <br>
+    <p class="code block">
+        main { <br>
+            &emsp;section { <br>
+                &emsp;&emsp;.column { <br>
+                    &emsp;&emsp;&emsp;.news { <br>
+                        &emsp;&emsp;&emsp;&emsp;width: 300px; <br>
+                        &emsp;&emsp;&emsp;&emsp;font-family: $news-font; <br>
+                    &emsp;&emsp;&emsp;} <br>
+                &emsp;&emsp;} <br>
+            &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>Que se corresponde con el siguiente html:</p>
+    <br>
+    <p class="code block">
+        &lt;main&gt;<br>
+            &emsp;&lt;section&gt;<br>
+                &emsp;&emsp;&lt;div class="column"&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;div class="news"&gt;&lt;/div&gt;<br>
+                &emsp;&emsp;&lt;/div&gt;<br>    
+            &emsp;&lt;/section&gt;<br>
+        &lt;/main&gt;
+    </p>
+    <br>
+    <br>
+    <p>Si ahora quisieramos utilizar <span class="code">.news</span> en otro lugar, por ejemplo así:</p>
+    <br>
+    <p class="code block">
+        &lt;main&gt;<br>
+            &emsp;&lt;section&gt;<br>
+                &emsp;&emsp;&lt;div class="column"&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;div class="news"&gt;&lt;/div&gt;<br>
+                &emsp;&emsp;&lt;/div&gt;<br>    
+            &emsp;&lt;/section&gt;<br>
+            &emsp;&lt;section class="secondary-news"&gt;<br>
+                    &emsp;&emsp;&lt;div class="news"&gt;&lt;/div&gt;<br>
+                    &emsp;&emsp;&lt;div class="news"&gt;&lt;/div&gt;<br>
+                    &emsp;&emsp;&lt;div class="news"&gt;&lt;/div&gt;<br>
+            &emsp;&lt;/section&gt;<br>
+        &lt;/main&gt;
+    </p>
+    <br>
+    <br>
+    <p>Los estilos que declaramos para <span class="code">.news</span> no se van a aplicar a los que se encuentran dentro de <span class="code">.secondary-news</span>, ya que en la jerarquía que declaramos en nuestro archivo sass,
+    necesitamos que esté dentro de un elemento <span class="code">.column</span> para que aplique. Por eso, para casos así, lo mejor es declarar una jerarquía más flexible, como podría ser:</p>
+    <br>
+    <p class="code block">
+        main { <br>
+            &emsp;.news { <br>
+                &emsp;&emsp;width: 300px; <br>
+                &emsp;&emsp;font-family: $news-font; <br>
+            &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>Si usamos el selecto <b>&</b> anidado, lo que estamos haciendo es referenciar al elemento padre. Esto nos sirve para utilizar en conjunto con pseudo-selectores, por ejemplo:</p>
+    <br>
+    <p class="code block">
+        h1 { <br>
+            &emsp;color: grey; <br><br>
+
+            &emsp;&:hover { <br>
+                &emsp;&emsp;color: red; <br>
+            &emsp;} <br>
+        }
+    </p>    
+    <br>
+    <br>
+    <p>Lo que se compila como:</p>
+    <br>
+    <p class="code block">
+        h1 { <br>
+            &emsp;color: grey; <br>
+        } <br>
+        h1:hover { <br>
+            &emsp;color: red; <br>
+        }
+    </p>
+    <br>
+    <br>
+    <br>
+    <h2>Media queries</h2>
+    <br>
+    <p>Podemos anidar <b>media queries</b> directamente dentro de selectores, sin necesidad de estar referenciándolos nuevamente. Por ejemplo:</p>
+    <br>
+    <p class="code block">
+        h1 { <br>
+            &emsp;font-size: 32px; <br><br>
+
+            &emsp;@media (max-width: 350px) { <br>
+                &emsp;&emsp;font-size: 28px; <br>
+            &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>Lo que se traduce en css como:</p>
+    <br>
+    <p class="code block">
+        h1 { <br>
+            &emsp;font-size: 32px; <br>
+        } <br>
+        @media (max-width: 350px) { <br>
+            &emsp;h1 { <br>
+                &emsp;&emsp;font-size: 28px; <br>
+            &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <br>
+    <h2>Archivos parciales</h2>
+    <br>
+    <p>Con CSS, si queremos separar nuestro código en diferentes archivos para tenerlo mejor organizado y clasificado, tenemos que luego linkear cada uno de estos archivos en nuestro html. Esto no es muy recomendado,
+        ya que aumenta los tiempos de carga de nuestra página. Sass nos soluciona esto permitiendonos crear <b>archivos parciales</b>. <br> <br>
+        Estos archivos parciales no se transforman directamente en archivos .css, sino que tienen que ser primero importados en un archivos sass que no sea parcial, y compilar este último. <br>
+        Al importar un archivo parcial, lo que estamos haciendo es incluir su código dentro del archivo al que lo estamos importando. <br> <br>
+        Para declarar un <b>archivo parcial</b>, basta con anteponerle al nombre del archivo un guión bajo, por ejemplo:
+    </p>
+    <br>
+    <p class="code">_variables.scss</p>
+    <br>
+    <br>
+    <p>Luego, para importar este archivo, es decir, para incluir su código, necesitamos utilizar la instrucción:</p>
+    <br>
+    <p class="code">@import 'variables'</p>
+    <br>
+    <br>
+    <p>dentro del archivo al que lo queremos importar. Hay que prestar atención que cuando importamos, no ponemos el nombre del archivo ni con guión bajo, ni con la extensión.</p>
+    <br>
+    <p>La instrucción <span class="code">@import</span> no toma el nombre de un archivo, sino la ruta relativa al mismo, por lo tanto, si por ejemplo nuestro archivo a importar está dentro de una carpeta <span class="code">general</span>, tenemos que usar lo siguiente:</p>
+    <br>
+    <p class="code">@import 'general/variables'</p>
+    <br>
+    <br>
+    <br>
+    <h2>Organización</h2>
+    <br>
+    <p>La posibilidad de separar nuestro código en distintos archivos nos permite organizarlo y distribuirlo de forma que sea más entendible y que nos facilite la tarea a la hora de encontrar y modificar estilos particulares. Una <b>posible</b> (no la única) forma de hacerlo, es la siguiente:</p>
+    <br>
+    <p class="code block">
+        fonts <br>
+        images <br>
+        html <br>
+            &emsp;about.html <br>
+            &emsp;contact.html <br>
+        <b>styles</b> <br>
+            &emsp;<b>general</b> <br>
+                &emsp;&emsp;_variables.scss <br>
+                &emsp;&emsp;_fonts.scss <br>
+                &emsp;&emsp;_normalize.scss <br>
+            &emsp;<b>components</b> <br>
+                &emsp;&emsp;_buttons.scss <br>
+                &emsp;&emsp;_inputs.scss <br>
+                &emsp;&emsp;_text.scss <br>
+            &emsp;<b>css</b> <br>
+                &emsp;&emsp;main.css <br>                
+            &emsp;<b>layout</b> <br>
+                &emsp;&emsp;_header.scss <br>
+                &emsp;&emsp;_nav.scss <br>
+                &emsp;&emsp;_aside.scss <br>
+                &emsp;&emsp;_footer.scss <br>
+            &emsp;<b>pages</b> <br>
+                &emsp;&emsp;_home.scss <br>
+                &emsp;&emsp;_about.scss <br>
+                &emsp;&emsp;_contact.scss <br>                                     
+            &emsp;main.scss <br>
+        index.html
+    </p>
+    <br>
+    <br>
+    <p>La estructura anterior cuenta con un único archivo scss completo, <span class="code">main.scss</span>, que va a ser compilado a css. El resto de los archivos son parciales. En este archivo <span class="code">main.scss</span> no se escribe nada de código, sólo
+    sirve para importar los demás archivos. Dentro del mismo escribiríamos:</p>
+    <br>
+    <p class="code block">
+        @import 'general/variables'; <br>
+        @import 'general/fonts'; <br>
+        @import 'general/normalize'; <br><br>
+        @import 'components/buttons'; <br>
+        ...
+    </p>
+    <br>
+    <br>
+    <p>Dentro de <b>general</b> irían las declaraciones más generales y que se utilizan en todos los estilos, por ejemplos las variables y el archivo de normalización.</p>
+    <br>
+    <p>En <b>components</b> van aquellos elementos que se repiten en distintas páginas, y que comparten ciertos estilos, por ejemplos, botones, inputs, cuadros de diálogo, algunos textos, etc. La idea es separarlos en archivos parciales por tipo,
+    y que sólo refiramos a ellos a elementos o conjuntos de elementos html muy chiquitos o indivisibles, es decir, que ya no pueden ser subdivididos y van siempre juntos</p>
+    <br>
+    <p>En <b>layout</b> irían aquellas secciones más generales de las páginas que se <b>repiten</b> en varias o todas ellas. Ejemplos más usuales son el header, el footer, y el nav. Los incluimos dentro de un estilo archivo parcial cada uno.</p>
+    <br>
+    <p>Dentro de <b>pages</b> iría un archivo parcial por cada página, donde incluiríamos los estilos <b>particulares</b> a cada una de ellas, es decir, aquellas cosas <b>específicas</b> que o bien no se repiten en otras páginas, o son propias de ellas. Por ejemplo, un botón puede repetir sus estilos en múltiples páginas, pero
+    la ubicación de dicho botón es propio de cada página en particular (no está siempre ubicado en el mismo lado).</p>
+    <br>
+    <p>Finalmente, dentro de <b>css</b> iría el archivo <span class="code">main.css</span> que es la compilación de todos nuestros archivos, y que sería el que linkearíamos en nuestro html</p>
+    <br>
+    <p>Podemos aprovecharnos de la posibilidad de anidar selectores en sass para declarar los estilos que pertenecen a cada elemento, sección o página y que no afecten al resto de los elementos. Por ejemplo, dentro de <span class="code">_footer.scss</span> incluiríamos algo así cómo:</p>
+    <p class="code block">
+        footer { <br>
+            &emsp;ul { <br>
+                &emsp;&emsp;li { <br><br>
+
+                &emsp;&emsp;} <br>
+            &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>de modo tal que si tenemos algún <span class="code">ul li</span> en alguna otra sección de nuestras páginas, no lo afecte los estilos del footer. Es decir, incluimos todos los estilos del footer dentro de un selector, de modo que dichos estilos sólo se apliquen a los que pertenecen a dicho elemento.</p>
+    <br>
+    <p>Lo mismo podemos hacer con las páginas y los layouts. Supongamos que los elementos <span class="code">h2</span> de la página principal tienen un tamaño de letra diferente al de los demás elementos <span class="code">h2</span> de las restantes páginas, entonces lo que podemos hacer es:</p>
+    <p class="code block">
+        #home { <br>
+            &emsp;h2 { <br>
+                &emsp;&emsp;font-size: 24px; <br>
+            &emsp;} <br>
+        }
+    </p>
+    <br>
+    <br>
+    <p>de esta forma, estamos apuntando a los elementos <span class="code">h2</span> dentro de un elemento <span class="code">#home</span>, y el resto de los elementos <span class="code">h2</span> no se verían afectados. Para que esto funcione, tendríamos que incluir dentro de nuestro html a todos los elementos de nuestra página home o index dentro de un contenedor con id <span class="code">home</span>.</p>
+</body>
+</html>
