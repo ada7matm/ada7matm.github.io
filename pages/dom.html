@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sass.css">
+    <style>
+        .accordion {
+          cursor: pointer;
+          width: 100%;
+          border: none;
+          outline: none;
+          transition: 1s;
+        }
+        .inner-accordion {
+            cursor: pointer;
+        }
+        .accordion:after {
+          content: '\002B';
+          color: #777;
+          font-weight: bold;
+          float: right;
+          margin-left: 5px;
+        }
+        
+        .active:after {
+          content: "\2212";
+        }
+        .inner-accordion.active {
+            color: brown;
+        }   
+        .inner-accordion.active:after{
+            content: "";
+        }
+        .panel {
+          padding: 0 18px;
+          background-color: white;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height .7s ease-out;
+        }
+        .inner-accordion + .panel {
+            transition: none;
+        }
+        </style>
+        
+</head>
+<body>
+    <h1 class="title">DOM</h1>
+    <br>
+    <p>El DOM (<em>Document Object Model</em>, o Modelo de Objeto de Documento) es un modelo constituido por objetos,
+    anidados en forma de árbol, mediante el cual podemos interactuar dinámicamente con el contenido HTML de una página. El navegador
+    toma la información almacenada en el objeto <em>document</em> y la utiliza para renderizar los elementos HTML con cada una de sus propiedades.
+    Como <em>document</em> es un objeto, y desde JavaScript podemos modificar las propiedades de un objeto, si lo hacemos con este o con cualquiera de sus hijos,
+    este cambio se hará visible en la página.</p>
+    <br>
+    <p>Los elementos que componen el DOM se llaman <em>nodos</em>. Cada nodo es un objeto que contiene propiedades en las que está guardada toda la información concerniente a ese nodo,
+    por ejemplo, si es un nodo HTML, tiene propiedades como estilos, texto, clases, atributos, etc. Un nodo no es más que un objeto, por lo que podemos crearlo, modificarlo y borrarlo
+    libremente de la misma forma que lo hacemos manipulando objetos en JavaScript. Cuando creamos un nodo, este no aparece en la página inmediatamente, sólo lo hacemos cuando
+    lo agregamos al DOM, es decir, a algunos de los nodos que integran la página actual.</p>
+    <br>
+    <p>Tenemos muchas propiedades y métodos a disposición para trabajar y manipular el DOM, todo depende de lo que queramos hacer:</p>
+    <br>
+    <h2 class="accordion">Quiero obtener elementos existentes</h2>
+    <div class="panel">
+        <br>
+        <p class="inner-accordion"><b>¿Ese elemento tiene un id?</b></p>
+        <div class="panel">
+            <p class="code">document.getElemenById('contenedor')</p>
+            <p>Devuelve un nodo HTML con id "contenedor", o <em>null</em> si no encuentra ninguno. Ojo con este null, porque muchas veces causa errores cuando intentamos hacer algo con un elemento que no existe.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Ese elemento tiene una clase?</b></p>
+        <div class="panel">
+            <p class="code">document.getElemenByClassName('importante')</p>
+            <p>Devuelve un array de nodos HTML con clase "importante", si no encuentra ninguno devuelve un array vacío. Como es un array, tenemos que iterarlo sobre este o acceder a sus elementos mediante sus índices.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Ese elemento tiene un selector complejo?</b></p>
+        <div class="panel">
+            <p class="code">document.querySelectorAll('.lista .items')</p>
+            <p>Devuelve un array de nodos HTML con clase "items" que estén dentro de un elemento con clase "lista", si no encuentra ninguno devuelve un array vacío. Acepta como parámetro cualquier string con forma de selector de css.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿No tiene ningún identificador?</b></p>
+        <div class="panel">
+            <p class="code">document.getElemenByTagName('main')</p>
+            <p>Devuelve un array de nodos HTML de tipo "main", si no encuentra ninguno devuelve un array vacío.</p>
+            <br>
+            <br>
+            <p>Como los nodos son objetos, podemos guardarlos en variables para reutilizarlos luego. Todo lo que diga "elemento" en los ejemplos representa
+            una variable que tiene almacenado un nodo HTML.
+            </p>
+            <br>
+            <p class="code">let contenedor = document.getElemenById('contenedor')</p>
+            <br>   
+        </div>
+    </div>
+    <h2 class="accordion">Quiero manipular atributos de un nodo</h2>
+    <div class="panel">
+        <br>
+        <p class="inner-accordion"><b>¿Necesitás una lista de los nombres de los atributos que contiene?</b></p>
+        <div class="panel">
+            <p class="code">elemento.getAttributeNames()</p>
+            <p>Devuelve un array de strings con el nombre de los atributos de dicho nodo.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás chequear si tiene un atributo?</b></p>
+        <div class="panel">
+            <p class="code">elemento.hasAttribute("href")</p>
+            <p>Devuelve <em>true</em> si el nodo posee el atributo "href",<em>false</em> si no lo tiene.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás acceder al valor de algún atributo?</b></p>
+        <div class="panel">
+            <p class="code">elemento.getAttribute("href")</p>
+            <p>Devuelve el valor del atributo "href" del nodo.</p>
+            <br>
+            <p>A muchos atributos podemos acceder directamente con la notación de puntos o de corchetes, por ejemplo</p>
+            <br>
+            <p class="code">elemento.src</p><br>
+            <p class="code">elemento["src"]</p>
+            <p>Ambos sirven para acceder al atributo "src" del nodo.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás modificar el valor de algún atributo?</b></p>
+        <div class="panel">
+            <p class="code">elemento.setAttribute("href", "https://www.google.com")</p>
+            <p>Agrega o modifica el atributo "href" al nodo con el valor "https://www.google.com".</p>
+            <br>
+            <p>Como los atributos son propiedades del objeto nodo, podemos asignarles valores directamente como lo haríamos con cualquier propiedad de un objeto</p>
+            <p class="code">elemento.src = "imagen.jpg"</p>    
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás eliminar un atributo?</b></p>
+        <div class="panel">
+            <p class="code">elemento.removeAttribute("href")</p>
+            <p>Elimina el atributo "href" del nodo.</p>
+        </div>
+        <br>
+    </div>
+    <h2 class="accordion">Quiero manipular las clases de un nodo</h2>
+    <div class="panel">
+        <br>
+        <p class="inner-accordion"><b>¿Necesitás una lista de las clases que contiene?</b></p>
+        <div class="panel">
+            <p class="code">elemento.classList</p>
+            <p>Devuelve un array el nombre de las clases de dicho nodo.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás agregar una clase?</b></p>
+        <div class="panel">
+            <p class="code">elemento.classList.add("importante")</p>
+            <p>Agrega la clase "importante" al nodo, si ya la tiene, no hace nada.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás eliminar una clase?</b></p>
+        <div class="panel">
+            <p class="code">elemento.classList.remove("importante")</p>
+            <p>Remueve la clase "importante" del nodo, si no la tenía, no hace nada.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás comprobar si tiene una clase?</b></p>
+        <div class="panel">
+            <p class="code">elemento.classList.contains("importante")</p>
+            <p>Devuelve <em>true</em> si el nodo contiene la clase "importante", o <em>false</em> sino.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás prender/apagar una clase?</b></p>
+        <div class="panel">
+            <p class="code">elemento.classList.toggle("importante")</p>
+            <p>Agrega la clase "importante" al nodo si no la tiene, o la elimina si ya la tenía.</p>
+        </div>
+        <br>
+    </div>
+    <h2 class="accordion">Quiero manipular los estilos de un nodo</h2>
+    <div class="panel">
+        <br>
+        <p>Los nodos tienen una propiedad <em>style</em>, que es a su vez un objeto con muchas propiedades, cada una de las cuales representa una propiedad de CSS. 
+        Los nombres de las propiedades están escritos en camelCase, por ejemplo, si queremos acceder a la propiedad <span class="code">background-color</span>, hacemos</p>
+        <br>
+        <p class="code">elemento.style.backgroundColor</p>
+        <br>
+        <p>Y para modificarlo simplemente le agregamos el valor que le agregaríamos en CSS</p>
+        <br>
+        <p class="code">elemento.style.margin = '5px 10px'</p>
+        <br>
+        <br>
+    </div>   
+    <h2 class="accordion">Quiero recorrer el DOM</h2>
+    <div class="panel">
+        <br>
+        <p class="code">elemento.children</p>
+        <br>
+        <p>Devuelve un array con los nodos hijos del elemento, o un array vacío si no tiene ninguno.</p>
+        <br>
+        <p>Como cada nodo es un objeto con todas las propiedades que estamos viendo, podemos seguir accediendo a los hijos de los hijos de los hijos...</p>
+        <br>
+        <p class="code">elemento.children[1].children[0]</p>
+        <br>
+        <p>En este caso, accedimos al primer hijo del segundo elemento hijo del nodo</p>
+        <br>
+        <p class="code">elemento.parentElement</p>
+        <br>
+        <p>Devuelve el nodo padre que contiene al elemento, o <em>null</em> si no tiene ninguno (solo <em>document</em> no tiene ninguno, porque es la raíz o comienzo del árbol). Como este es un nodo, también contiene un padre, por lo que podemos seguir ascendiendo en la jerarquía</p>
+        <br>
+        <p class="code">element.parentElement.parentElement</p>
+        <br>
+        <p>En este caso, accedimos al abuelo del elemento</p>
+        <br>
+        <p class="code">element.previousElementSibling</p>
+        <br>
+        <p class="code">element.nextElementSibling</p>
+        <br>
+        <p>Devuelven el elemento hermano del nodo, el previo y el siguiente, respectivamente, o <em>null</em> si no tiene ninguno</p>
+        <br>
+        <br>
+    </div>
+    <h2 class="accordion">Quiero crear nuevos elementos</h2>
+    <div class="panel">
+        <br>
+        <p class="inner-accordion"><b>¿Necesitás crear un elemento desde cero?</b></p>
+        <div class="panel">
+            <p class="code">let nuevoElemento = document.createElement("div")</p>
+            <br>
+            <p>Crea un nodo nuevo de tipo <em>div</em> y lo guarda en la variable <em>nuevoElemento</em>. <b>El elemento no se visualizar inmediatamente en la página</b>, sólo lo creamos, para que lo haga necesitamos agregarlo al DOM.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás crear clonar un elemento ya existente?</b></p>
+        <div class="panel">
+            <p class="code">let clon = elemento.cloneNode(true)</p>
+            <br>
+            <p>Clona el elemento y lo guarda en la variable <em>clon</em>.</p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás agregar un elemento al DOM?</b></p>
+        <div class="panel">
+            <p class="code">contenedor.appendChild(elemento)</p>
+            <br>
+            <p>Agrega un nodo <em>elemento</em> al nodo <em>contenedor</em>, es decir, <em>elemento</em> se vuelve hijo de <em>contenedor</em>. Si el elemento padre ya contenía otros elementos, se agrega al final de estos.</p>
+            <br>
+            <p class="code">contenedor.insertBefore(nuevoElemento, elementoExistente)</p>
+            <br>
+            <p>Agrega el nodo <em>nuevoElemento</em> como hermano previo del nodo <em>elementoExistente</em></p>
+            <br>
+            <p class="code">contenedor.insertAfter(nuevoElemento, elementoExistente)</p>
+            <br>
+            <p>Agrega el nodo <em>nuevoElemento</em> como hermano siguiente del nodo <em>elementoExistente</em></p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás eliminar un elemento del DOM?</b></p>
+        <div class="panel">
+            <p class="code">contenedor.removeChild(elemento)</p>
+            <br>
+            <p>Remueve el nodo <em>elemento</em></p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás reemplazar un elemento del DOM?</b></p>
+        <div class="panel">
+            <p class="code">contenedor.replaceChild(nuevoElemento, elementoViejo)</p>
+            <br>
+            <p>Reemplaza el nodo <em>elementoViejo</em> por <em>nuevoElemento</em></p>
+            <br>
+        </div>
+        <p class="inner-accordion"><b>¿Necesitás reemplazar todo el HTML de un nodo?</b></p>
+        <div class="panel">
+            <p class="code">elemento.innerHTML</p>
+            <br>
+            <p>Accede al HTML interno de un nodo. Si lo sobreescribimos o lo modificamos, el HTML se regenera,
+            y los nodos que ya existían se reconstruyen de nuevo, por lo que si alguno tenía algun evento asignado
+            se pierde.
+            </p>
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+    var acc = document.getElementsByClassName("accordion");
+    var inacc = document.getElementsByClassName("inner-accordion");
+    
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+            for (var j = 0; j < panel.children.length; j++) {
+                if (panel.children[j].classList.contains("inner-accordion")) {
+                    panel.children[j].classList.remove("active")
+                    panel.children[j].nextElementSibling.style.maxHeight = null;
+                }
+            }
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            if (panel.parentElement.classList.contains("panel"))
+                panel.parentElement.style.maxHeight = panel.parentElement.scrollHeight + "px";
+        } 
+        });
+    }
+    for (var i = 0; i < inacc.length; i++) {
+        inacc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+            panel.parentElement.style.maxHeight = panel.parentElement.scrollHeight + "px";
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            if (panel.parentElement.classList.contains("panel"))
+                panel.parentElement.style.maxHeight = panel.parentElement.scrollHeight + "px";
+        } 
+        });
+    }
+    </script>
+</body>
+</html>
